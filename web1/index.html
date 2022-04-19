@@ -1,77 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="./img/elogo.jpg">
+    <link rel="apple-touch-icon" href="./img/elogo.jpg">
+    <!-- 검색(메타) 정보 -->
+    <meta name="url" content="https://www.samwha.co.kr/electric/">
+    <meta name="title" content="삼화전기">
+    <meta name="description" content="삼화전기의 제품소개,기술정보,새소식,기술지원">
+    <meta name="keywords" content="삼화전기,Green-Cap(EDLC),Hybrid Cap">
+    <!-- 오픈 그래프 -->
+    <meta property="og:url" content="https://www.samwha.co.kr/electric/">
+    <meta property="og:title" content="삼화전기">
+    <meta property="og:description" content="삼화전기의 제품소개,기술정보,새소식,기술지원">
+    <meta property="og:image" content="./img/logo-square-letter.png">
+    <title>삼화전기</title>
+    <!-- 기본 플러그인 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- 웹 폰트/폰트 모듈 연결 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+    @font-face {
+        font-family: 'scB';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    } 
+    @font-face {
+        font-family: 'ROKAF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSlabSerifBold.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }   
+    </style>
+    <!-- 웹 아이콘 연결 -->
+    <!-- XEIcon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- 스타일 초기화 모듈 연결 -->
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <style>
+    /* font-family: 'Noto Sans KR', sans-serif;  */
+    /* 내게 필요한 스타일 초기화 */
+    * { margin: 0; padding: 0; }
+    body, html { font-family: 'Noto Sans KR', sans-serif; width: 100%; } 
+    ul { list-style: none; } 
+    a { text-decoration: none; color: #333; }
+
+    .vs_tit { font-family: 'scB'; } 
+    .vs_com { font-family: 'Nanum Gothic', sans-serif; } 
+    i[class*='xi'] { font-size:28px; color:#000; }
+    i[class*='xi']:hover { color:rgb(226, 55, 25); }
+
+    .wrap { clear:both; width: 100%; }
+    #hd { clear:both; width: 100%;  }
+    .hd_wrap { clear:both; width: 1280px; margin: 0 auto; }
+    .logo { display:block; width: 250px; float:left; }
+    .logo img { display:block; width: 100%; }
+    #gnb { float:left; }
+    #gnb > ul > li { float:left; padding-left: 50px; padding-right: 20px; 
+    position:relative;   }
+    #gnb > ul > li > span { display:block; line-height: 36px; cursor:pointer; }
+    #gnb ul li .sub { display:none; position:absolute; left:10px; top:36px; z-index:999;
+    padding-left: 10px;  width: 160px; height: 200px; background-color: #eee; }
+    #gnb ul li .sub li { line-height: 38px; }
+    #gnb ul li:hover .sub { display:block; }
+
+    #tnb { float:right; }
+
+    #content { clear:both; width: 100%; }
+    #ft { clear:both; width: 100%; }
+
+    </style>
 </head>
 <body>
     <div class="wrap">
         <header id="hd">
             <div class="hd_wrap">
-                <a href="" class="logo"><img src="" alt=""></a>
+                <a href="index.html" class="logo">
+                    <img src="./img/elogo.jpg" alt="로고">
+                </a>
                 <nav id="gnb">
                     <ul>
                         <li>
-                            <span>메인1</span>
+                            <span>제품소개</span>
                             <ul class="sub">
-                                <li><a href="">메뉴1</a></li>
-                                <li><a href="">메뉴2</a></li>
-                                <li><a href="">메뉴3</a></li>
-                                <li><a href="">메뉴4</a></li>
+                                <li><a href="">Green-cap</a></li>
+                                <li><a href="">Aluminum E-cap</a></li>
+                                <li><a href="">New Products</a></li>
                             </ul>
                         </li>
                         <li>
-                            <span>메인2</span>
+                            <span>기술정보</span>
                             <ul class="sub">
-                                <li><a href="">메뉴1</a></li>
-                                <li><a href="">메뉴2</a></li>
-                                <li><a href="">메뉴3</a></li>
-                                <li><a href="">메뉴4</a></li>
+                                <li><a href="">Green-Cap(EDLC)</a></li>
+                                <li><a href="">Hybrid Cap</a></li>
+                                <li><a href="">Aluminum Cap</a></li>
                             </ul>
                         </li>
                         <li>
-                            <span>메인3</span>
+                            <span>회사소개</span>
                             <ul class="sub">
-                                <li><a href="">메뉴1</a></li>
-                                <li><a href="">메뉴2</a></li>
-                                <li><a href="">메뉴3</a></li>
-                                <li><a href="">메뉴4</a></li>
+                                <li><a href="">CEO 인사말</a></li>
+                                <li><a href="">회사소개</a></li>
+                                <li><a href="">관련사소개</a></li>
+                                <li><a href="">찾아오시는 길</a></li>
                             </ul>
                         </li>
                         <li>
-                            <span>메인4</span>
+                            <span>새소식</span>
                             <ul class="sub">
-                                <li><a href="">메뉴1</a></li>
-                                <li><a href="">메뉴2</a></li>
-                                <li><a href="">메뉴3</a></li>
-                                <li><a href="">메뉴4</a></li>
+                                <li><a href="">뉴스</a></li>
+                                <li><a href="">신제품 소개</a></li>
+                                <li><a href="">인증 및 특허</a></li>
                             </ul>
                         </li>
                         <li>
-                            <span>메인5</span>
+                            <span>기술지원</span>
                             <ul class="sub">
-                                <li><a href="">메뉴1</a></li>
-                                <li><a href="">메뉴2</a></li>
-                                <li><a href="">메뉴3</a></li>
-                                <li><a href="">메뉴4</a></li>
+                                <li><a href="">친환경 활동</a></li>
+                                <li><a href="">샘플요청</a></li>
+                                <li><a href="">국내대리점</a></li>
+                                <li><a href="">S-PRM 시스템</a></li>
+                                <li><a href="">문의</a></li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
                 <p id="tnb">
-                    <a href="">상단1</a>
-                    <a href="">상단2</a>
-                    <a href="">상단3</a>
+                    <a href="">홈</a>
+                    <a href="">사이트맵</a>
+                    <a href="">제품검색</a>
                 </p>
             </div>
         </header>
         <div id="content">
-
+            <div id="vs">
+                <ul class="img_box">
+                    <li>
+                        <a href="">
+                            <img src="./img/main_img.jpg" alt="메인이미지" class="pic">
+                            <div class="tit_box">
+                                <h2 class="vs_tit">SAMWHA Electric, the choice for the future!</h2>
+                                <p class="vs_com">미래를 위한 선택, 삼화전기입니다!</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/5556.PNG" alt="Green-cap" class="pic">
+                            <div class="tit_box">
+                                <h2 class="vs_tit">Green-cap</h2>
+                                <p class="vs_com">Single Cell / Module</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/5859.PNG" alt="Aluminum E-cap" class="pic">
+                            <div class="tit_box">
+                                <h2 class="vs_tit">Aluminum E-cap</h2>
+                                <p class="vs_com">Hybrid Al E-cap. Miniature Al E-cap. Large Al E-cap. Surface Monut Al E-cap. <br> Conductive Polymer Al E-cap.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/main_06.jpg" alt="COMPANY" class="pic">
+                            <div class="tit_box">
+                                <h2 class="vs_tit">COMPANY</h2>
+                                <p class="vs_com">창조적경영,윤리적경영 이념을 바탕으로 세계적 기업으로의<br>성장영량을 갖추도록 하는것</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/main_07.jpg" alt="PRODUCT SERCH" class="pic">
+                            <div class="tit_box">
+                                <h2 class="vs_tit">PRODUCT SERCH</h2>
+                                <p class="vs_com">삼화전기 제품을 보다 빠르고 편리하게<br>검색하실 수 있습니다.</p> 
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="btn_group">
+                    <button class="prev"><i class="xi-arrow-left"></i></button>
+                    <button class="next_btn"><i class="xi-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="grid_box">
+                <ul class="grid_wrap">
+                    <li class="col2 item1">
+                        <a href="">
+                            <img src="./img/se_main_05.jpg" alt="se메인5">
+                            <h3 class="col_tit">삼화전기 IR</h3>
+                            <p class="col_com">경영정보 / 주식정보 / 공고 / IR문의</p>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="col2 item2">
+                        <a href="">
+                            <img src="./img/se_main_06.jpg" alt="se메인6">
+                            <h3 class="col_tit">샘플요청</h3>
+                            <p class="col_com">샘플을 요청해주세요!</p>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="col2 item3">
+                        <a href="">
+                            <img src="./img/se_main_07.jpg" alt="se메인7">
+                            <h3 class="col_tit">대리점</h3>
+                            <p class="col_com">국내대리점 / 해외법인판매!</p>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="col2 item4">
+                        <a href="">
+                            <img src="./img/se_main_08.jpg" alt="se메인8">
+                            <h3 class="col_tit w">채용정보</h3>
+                            <p class="col_com w">삼화전기 채용정보안내!</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <footer id="ft">
-
+            <div class="ft_wrap">
+                <nav class="fnb">
+                    <a href="">사이트맵</a>
+                    <a href="">Contact US</a>
+                    <a href="">회원약관</a>
+                    <a href="">개인정보처리방침</a>
+                    <a href="">보안신고센터</a>
+                    <a href="">협력사</a>
+                </nav>
+                <nav class="snb">
+                    <ul>
+                        <li class="sns1">
+                            <a href="" title="페이스북"><i class="xi-facebook"></i></a>
+                        </li>
+                        <li class="sns2">
+                            <a href="" title="유튜브"><i class="xi-youtube-play"></i></a>
+                        </li>
+                        <li class="sns3">
+                            <a href="" title="네이버 포스트"><i class="xi-naver"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright">삼화전기주식회사<br>주소 : 28589 충청북도 청주시 흥덕구 봉명로 3 (복대동) Tel 043-261-0200 / Fax 043-263-8334<br><br>Copyright © samwha Capacitor Group. All Rights Reserved </p>
+            </div>
         </footer>
     </div>
 </body>
