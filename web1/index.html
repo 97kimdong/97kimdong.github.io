@@ -83,20 +83,37 @@
     .img_box li a { display: block;}
     .img_box li a img { display: block; width: 100%; height: auto;}
     .img_box .tit_box { position: absolute; top: 50px; left: 50px; color: #fff;
-    text-shadow: 2px 2px 2px #333; padding-left: 40px;}
+    text-shadow: 2px 2px 2px #333; padding-left: 40px; z-index: 30;}
     .vs_tit { font-size: 42px; line-height: 1.6; margin-top: 300px;}
     .vs_com { font-size: 20px; padding-top: 40px;}
+    .btn_group { position:absolute; bottom:0px; left:90px; z-index:40; }
+    .btn_group button { display:block; width: 80px; height: 80px; float:left; 
+    background-color:rgba(0,0,0,0.6); border:none; outline: none; color:#fff; display:block;}
+    .btn_group button i[class*='xi'] { color: #fff; }
+    .btn_group button:hover i[class*='xi'] { cursor:pointer; color:gold; }
 
     .grid_box { clear: both; width: 100%;}
     .grid_wrap { clear: both; width: 100%;}
-    .grid_wrap li { float: left; height: 25vw; background-position: center center;}
-    .grid_wrap li .item1 { background-image: url("./img/se_main_05.jpg");}
-    .grid_wrap li .item2 { background-image: url("./img/se_main_06.jpg");}
-    .grid_wrap li .item3 { background-image: url("./img/se_main_07.jpg");}
-    .grid_wrap li .item4 { background-image: url("./img/se_main_08.jpg");}
+    .grid_wrap li { float: left; height: 25vw; background-position: center center; font-size: 15px;}
+    .grid_wrap li.item1 { background-color:beige;}
+    .grid_wrap li.item2 { background-color:aquamarine;}
+    .grid_wrap li.item3 { background-color:burlywood;}
+    .grid_wrap li.item4 { background-color:darkseagreen;}
+    .grid_wrap li.item5 { background-color:tomato;}
+    .grid_wrap li.item6 { background-color:violet;}
 
     .col3 { width: 25%;}
-    #ft { clear:both; width: 100%; }
+    .col2 { width: 16.66667%; }
+    #ft { clear:both; width: 100%; padding-top: 20px; }
+    .ft_wrap { clear:both; width: 1280px; margin: 0 auto; }
+    .fnb { float:left; }
+    .fnb a { display:block; float:left; margin:14px; 
+        margin-left: 0; margin-right: 28px; font-size:15px; }
+    .fnb a:after { content:"|"; padding-left: 28px; }
+    .fnb a:last-child::after { content:""; }
+    .snb { float:right; }
+    .snb ul li { float:left; margin-left: 28px; }
+    .copyright { clear:both; padding-bottom: 28px; font-size:15px; }
 
     </style>
 </head>
@@ -211,48 +228,75 @@
                     </li>
                 </ul>
                 <div class="btn_group">
-                    <button class="prev"><i class="xi-arrow-left"></i></button>
+                    <button class="prev_btn"><i class="xi-arrow-left"></i></button>
                     <button class="next_btn"><i class="xi-arrow-right"></i></button>
                 </div>
                 <script>
-                    $(document).ready(function(){
-                        wd = $(window).width();
-                        var intv = setInterval(function(){
-                            ani1();
-                        }, 4000);
-                        function ani1(){
-                            $(".img_box").not(":animated").animate({"margin-left":-wd+"px"}, 600, function(){
-                                $(".img_box li").eq(0).appendTo($(".img_box"));
-                                $(".img_box").css("margin-left","0px");
-                            });
-                        }
-                    });    
-                    </script>    
+                $(document).ready(function(){
+                    wd = $(window).width();
+                    var intv = setInterval(function(){
+                        ani1();
+                    }, 4000);
+                    function ani1(){
+                        $(".img_box").not(":animated").animate({"margin-left":-wd+"px"}, 600, function(){
+                            $(".img_box li").eq(0).appendTo($(".img_box"));
+                            $(".img_box").css("margin-left","0px");
+                        });
+                    }
+                    function ani2(){
+                        $(".img_box").css("margin-left",-wd+"px");
+                        $(".img_box li:last-child").prependTo($(".img_box"));
+                        $(".img_box").not(":animated").animate({"margin-left":"0px"}, 600);
+                    }
+                    $(".btn_group .next_btn").click(function(){
+                        clearInterval(intv);
+                        ani1();
+                        intv = setInterval(function(){ ani1(); }, 3000);
+                    });
+                    $(".btn_group .prev_btn").click(function(){
+                        clearInterval(intv);
+                        ani2();
+                        intv = setInterval(function(){ ani1(); }, 3000);
+                    });
+                });    
+                </script>
             </div>
             <div class="grid_box">
                 <ul class="grid_wrap">
-                    <li class="col3 item1">
+                    <li class="col2 item1">
                         <a href="">
                             <h3 class="col_tit">삼화전기 IR</h3>
                             <p class="col_com">경영정보 / 주식정보 / 공고 / IR문의</p>
                         </a>
                     </li>
-                    <li class="col3 item2">
+                    <li class="col2 item2">
                         <a href="">
                             <h3 class="col_tit">샘플요청</h3>
                             <p class="col_com">샘플을 요청해주세요!</p>
                         </a>
                     </li>
-                    <li class="col3 item3">
+                    <li class="col2 item3">
                         <a href="">
                             <h3 class="col_tit">대리점</h3>
                             <p class="col_com">국내대리점 / 해외법인판매!</p>
                         </a>
                     </li>
-                    <li class="col3 item4">
+                    <li class="col2 item4">
                         <a href="">
                             <h3 class="col_tit">채용정보</h3>
                             <p class="col_com">삼화전기 채용정보안내!</p>
+                        </a>
+                    </li>
+                    <li class="col2 item5">
+                        <a href="">
+                            <h3 class="col_tit">새소식</h3>
+                            <p class="col_com">뉴스 / 신제품 소개 / 인증 및 특허</p>
+                        </a>
+                    </li>
+                    <li class="col2 item6">
+                        <a href="">
+                            <h3 class="col_tit">기술지원</h3>
+                            <p class="col_com"> 친환경활동 / FQA / 문의 </p>
                         </a>
                     </li>
                 </ul>
@@ -260,6 +304,27 @@
         </div>
         <footer id="ft">
             <div class="ft_wrap">
+                <nav class="fnb">
+                    <a href="">사이트맵</a>
+                    <a href="">Contact US</a>
+                    <a href="">회원약관</a>
+                    <a href="">개인정보처리방침</a>
+                    <a href="">보안신고센터</a>
+                    <a href="">협력사</a>
+                </nav>
+                <nav class="snb">
+                    <ul>
+                        <li class="sns1">
+                            <a href="" title="페이스북"><i class="xi-facebook"></i></a>
+                        </li>
+                        <li class="sns2">
+                            <a href="" title="유튜브"><i class="xi-youtube-play"></i></a>
+                        </li>
+                        <li class="sns3">
+                            <a href="" title="네이버 포스트"><i class="xi-naver"></i></a>
+                        </li>
+                    </ul>
+                </nav>
                 <p class="copyright">삼화전기주식회사<br>주소 : 28589 충청북도 청주시 흥덕구 봉명로 3 (복대동) Tel 043-261-0200 / Fax 043-263-8334<br><br>Copyright © samwha Capacitor Group. All Rights Reserved </p>
             </div>
         </footer>
