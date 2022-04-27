@@ -44,39 +44,13 @@
     <!-- 스타일 초기화 모듈 연결 -->
     <!-- <link rel="stylesheet" href="./css/reset.css"> -->
     <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="common.css">
     <style>
     /* font-family: 'Noto Sans KR', sans-serif;  */
     /* 내게 필요한 스타일 초기화 */
-    * { margin: 0; padding: 0; }
-    body, html { font-family: 'Noto Sans KR', sans-serif; width: 100%; } 
-    ul { list-style: none; } 
-    a { text-decoration: none; color: #333; }
 
-    .vs_tit { font-family: 'scB'; } 
-    .vs_com { font-family: 'Nanum Gothic', sans-serif; } 
-    i[class*='xi'] { font-size:28px; color:#000; }
-    i[class*='xi']:hover { color:rgb(226, 55, 25); }
 
-    .wrap { clear:both; width: 100%; }
-    #hd { clear:both; width: 100%;}
-    .hd_wrap { clear:both; width: 1280px; margin: 0 auto; }
-    .logo { display:block; width: 250px; float:left; margin-top: 10px;}
-    .logo img { display:block; width: 100%; }
-    #gnb { float:left; margin-top: 20px;}
-    #gnb > ul > li { float:left; padding-left: 60px; padding-right: 20px; 
-    position:relative; }
-    #gnb > ul > li > span { display:block; line-height: 50px; cursor:pointer;}
-    #gnb ul li .sub { display:none; position:absolute; left:10px; top:36px; z-index:999;
-    padding-left: 10px;  width: 150px; height: 200px; background-color: #eee; margin-top: 14px;}
-    #gnb ul li .sub li { line-height: 36px;}
-    #gnb ul li:hover .sub { display:block; }
-    #gnb ul li:hover span { color: deepskyblue;}
-    #gnb ul li .sub li:hover a {  color:hotpink;}
-    #tnb { float:right; padding-top: 10px; padding-bottom: 10px; margin-top: 20px;}
-    #tnb a { font-size: 0.85em; padding-left: 20px;}
-    #tnb a:hover { color: gold; text-decoration: underline;}
-
-    #content { clear:both; width: 100%; }
+    /* 비주얼 슬라이더 */
     #vs { width: 100%; overflow: hidden;}
     .img_box { width: 500%;}
     .img_box li { float: left; width: 20%; position: relative;}
@@ -92,9 +66,10 @@
     .btn_group button i[class*='xi'] { color: #fff; }
     .btn_group button:hover i[class*='xi'] { cursor:pointer; color:gold; }
 
-    .grid_box { clear: both; width: 100%;}
+    /* 그리드 박스 */
+    .grid_box { clear: both; width: 100%; }
     .grid_wrap { clear: both; width: 100%;}
-    .grid_wrap li { float: left; height: 25vw; background-position: center center; font-size: 15px;}
+    .grid_wrap li { float: left; height: 16.66667vw; background-position: center center; font-size: 15px;}
     .grid_wrap li.item1 { background-color:beige;}
     .grid_wrap li.item2 { background-color:aquamarine;}
     .grid_wrap li.item3 { background-color:burlywood;}
@@ -102,18 +77,27 @@
     .grid_wrap li.item5 { background-color:tomato;}
     .grid_wrap li.item6 { background-color:violet;}
 
-    .col3 { width: 25%;}
+    /* 그리드 */
+    .col1 { width: 8.33333%; }
     .col2 { width: 16.66667%; }
-    #ft { clear:both; width: 100%; padding-top: 20px; }
-    .ft_wrap { clear:both; width: 1280px; margin: 0 auto; }
-    .fnb { float:left; }
-    .fnb a { display:block; float:left; margin:14px; 
-        margin-left: 0; margin-right: 28px; font-size:15px; }
-    .fnb a:after { content:"|"; padding-left: 28px; }
-    .fnb a:last-child::after { content:""; }
-    .snb { float:right; }
-    .snb ul li { float:left; margin-left: 28px; }
-    .copyright { clear:both; padding-bottom: 28px; font-size:15px; }
+    .col3 { width: 25%; }
+    .col4 { width: 33.33333%; }
+    .col5 { width: 41.66667%; }
+    .col6 { width: 50%; }
+    .grid_wrap li a { display:block; padding: 28px; }
+    .col_tit, .col_com { color:#000; }
+    .col_tit { padding-top: 18px; }
+    .col_tit.w , .col_com.w { color:#fff; text-shadow:1px 1px 1px #333; }
+    .col_tit.w { padding-top: 0; }
+    .arrow { display:block; margin-top: 50px; }
+    .arrow:before { content:""; display:block; width:2px; height:5px; 
+    border-bottom:3px solid #555; float:left; transition:0.4s; }
+    .arrow:after { content:""; display:block; width: 30px; height: 8px; 
+    background-image: url("./img/newsletter_arrow_black.png"); float:left; }
+    .col_com { font-size:13px; padding-top: 20px; font-weight: 200;  }
+    .grid_wrap li:hover a .arrow:before { width: 18px;  }
+
+
 
     </style>
 </head>
@@ -129,44 +113,44 @@
                         <li>
                             <span>제품소개</span>
                             <ul class="sub">
-                                <li><a href="">Green-cap</a></li>
-                                <li><a href="">Aluminum E-cap</a></li>
-                                <li><a href="">New Products</a></li>
+                                <li><a href="product.html#page1">Green-cap</a></li>
+                                <li><a href="product.html#page2">Aluminum E-cap</a></li>
+                                <li><a href="product.html#page3">New Products</a></li>
                             </ul>
                         </li>
                         <li>
                             <span>기술정보</span>
                             <ul class="sub">
-                                <li><a href="">Green-Cap(EDLC)</a></li>
-                                <li><a href="">Hybrid Cap</a></li>
-                                <li><a href="">Aluminum Cap</a></li>
+                                <li><a href="technique.html#page1">Green-Cap(EDLC)</a></li>
+                                <li><a href="technique.html#page2">Hybrid Cap</a></li>
+                                <li><a href="technique.html#page3">Aluminum Cap</a></li>
                             </ul>
                         </li>
                         <li>
                             <span>회사소개</span>
                             <ul class="sub">
-                                <li><a href="">CEO 인사말</a></li>
-                                <li><a href="">회사소개</a></li>
-                                <li><a href="">관련사소개</a></li>
-                                <li><a href="">찾아오시는 길</a></li>
+                                <li><a href="company.html#page1">CEO 인사말</a></li>
+                                <li><a href="company.html#page2">회사소개</a></li>
+                                <li><a href="company.html#page3">관련사소개</a></li>
+                                <li><a href="company.html#page4">찾아오시는 길</a></li>
                             </ul>
                         </li>
                         <li>
                             <span>새소식</span>
                             <ul class="sub">
-                                <li><a href="">뉴스</a></li>
-                                <li><a href="">신제품 소개</a></li>
-                                <li><a href="">인증 및 특허</a></li>
+                                <li><a href="new.html#page1">뉴스</a></li>
+                                <li><a href="new.html#page2">신제품 소개</a></li>
+                                <li><a href="new.html#page3">인증 및 특허</a></li>
                             </ul>
                         </li>
                         <li>
                             <span>기술지원</span>
                             <ul class="sub">
-                                <li><a href="">친환경 활동</a></li>
-                                <li><a href="">샘플요청</a></li>
-                                <li><a href="">국내대리점</a></li>
-                                <li><a href="">S-PRM 시스템</a></li>
-                                <li><a href="">문의</a></li>
+                                <li><a href="support.html#page1">친환경 활동</a></li>
+                                <li><a href="support.html#page2">샘플요청</a></li>
+                                <li><a href="support.html#page3">국내대리점</a></li>
+                                <li><a href="support.html#page4">S-PRM 시스템</a></li>
+                                <li><a href="support.html#page5">문의</a></li>
                             </ul>
                         </li>
                     </ul>
