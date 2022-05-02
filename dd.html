@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header id="hd" class="panel-heading navbar navbar-default">
+	<div> <!-- class="hd_wrap container" -->
+		<%@ include file="nav.jsp" %>
+	</div>
+</header>
+<% if(sid.equals("admin")) { %>
+<div class="panel-heading">
+	<h2>게시판 글쓰기</h2>
+</div>
+<div class="panel-body">
+	<form action="boardInsertPro.jsp" method="post" name="f" onsubmit="return writeCheck(this)"> 
+		<table class="table">
+		<tbody>
+				<tr>
+					<td>제목 : </td>
+					<td>
+						<input type="text" name="btitle" id="btitle" maxlength="80" size="76" autofocus required>
+					</td>
+				</tr>
+				<tr>
+					<th>글내용 : </th>
+					<td>
+						<textarea name="post" id="post" cols="80" rows="6"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="pw1">작성자 : </label></th>
+					<td><input type="text" name="writer" id="writer" value="관리자" required></td>
+				</tr>
+				<tr>
+					<td colsapn="2">
+					<input type="submit" value="글등록" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="reset" value="취소" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="board1.jsp" class="btn btn-primary">목록</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<script>
+			function writeCheck(f) {
+				alert(f.post.value.lanth));
+                f.post.lanth
+				return false;
+				var memo = 0;
+				if(memo>=390){
+					alert("글자수가 400자 이하 이어야합니다");
+					return false;
+				}
+			}
+			</script>
+	</form>
+</div>
+<% } else {%>
+	<script>
+		alert("권한이 없습니다.")
+	</script>
+
+<%  } %>
+</body>
+</html>

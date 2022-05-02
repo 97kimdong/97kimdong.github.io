@@ -47,6 +47,40 @@
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="sub_common.css">
     <style>
+    .grid_box { clear: both; width: 100%; }
+    .grid_wrap { clear: both; width: 100%;}
+    .grid_wrap li { float: left; height: 16.66667vw; background-position: center center; font-size: 15px;}
+    .grid_wrap li a { display:block; padding: 30px; margin-top: 150px;}
+    .col_tit, .col_com { color:#000; }
+    .col_tit { padding-top: 18px; }
+    .col_tit.w , .col_com.w { color:#fff; text-shadow:1px 1px 1px #333; }
+    .col_tit.w { padding-top: 0; }
+    .arrow { display:block; margin-top: 50px; }
+    .arrow:before { content:""; display:block; width:2px; height:5px; 
+    border-bottom:3px solid #555; float:left; transition:0.4s; }
+    .arrow:after { content:""; display:block; width: 30px; height: 8px; 
+    background-image: url("./img/newsletter_arrow_black.png"); float:left; }
+    .col_com { font-size:13px; padding-top: 20px; font-weight: 200;  }
+    .grid_wrap li:hover a .arrow:before { width: 18px;  }
+    .col1 { width: 8.33333%; }
+    .col2 { width: 16.66667%; }
+    .col3 { width: 25%; }
+    .col4 { width: 33.33333%; }
+    .col5 { width: 41.66667%; }
+    .col6 { width: 50%; }
+    .td { border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px 0 15px 0px;
+    line-height: 20px;}
+    .faq_q {font-size: 50px;
+    color: #c63939;
+    font-weight: bold; }
+    td { display: table-cell;
+    vertical-align: inherit;}
+    table {    border-collapse: separate;
+    text-indent: initial;
+    border-spacing: 2px; }
+
     </style>
 </head>
 <body>
@@ -114,11 +148,16 @@
             <div class="content_wrap">
                 <section class="page" id="page1">
                     <figure class="sub_ban">
-                        <img src="./img/product_1.jpg" alt="Green-cap">
+                        <img src="./img/news1.jpg" alt="뉴스">
                         <div class="tit_box">
-                            <h2 class="sub_tit">Green-cap</h2>
-                            <p class="sub_com">일반적으로 활성탄을 전극 소재로 사용하는 초고용량 캐패시터(supercapacitor)를 전기이중층 캐패시터(EDLC)라고 부른다<br>
-                                EDLC는 사이클 특성이 탁원한 차세대 전기 에너지 저장 장치이다</p>
+                            <h2 class="sub_tit">뉴스</h2>
+                            <table class="sub_com">
+                                <a href="https://www.hankyung.com/economy/article/202105184757a">삼화전기, 삼성전자와 차세대 신제품 SSD에 최적화된 'S-CAP' 개발</a><br><br>
+                                <a href="https://daily.hankooki.com/news/articleView.html?idxno=712051">삼화전기, 5G 전용 고온장수명 하이브리드 커패시터 국내 최초 개발</a><br><br>
+                                <a href="https://www.khan.co.kr/economy/business/article/202105181154018#csidxc351d4dfc8677579add6760a132734e">삼화전기, 삼성전자와 데이터센터 서버용 SSD에 최적화된 ‘S-CAP’ 세계 최초 개발.. 본격 양산 공급</a><br><br>
+                                <a href="https://www.sedaily.com/NewsView/22MEQ3DJRY">삼화전기, 삼성전자와 데이터센터 서버용 SSD 최적화된 'S-CAP' 개발 및 본격 양산 공급</a><br><br>
+                                <a href="https://daily.hankooki.com/news/articleView.html?idxno=715174">삼화전기, 삼성전자 차세대 신제품 SSD에 S-CAP 양산 공급</a>
+                            </table>
                         </div>
                     </figure>
                     <div class="bread_box">
@@ -127,12 +166,12 @@
                                 <li class="item1">
                                     <a href="index" class="home">HOME</a>
                                 </li>
-                                <li class="item2">제품소개</li>
+                                <li class="item2">새소식</li>
                                 <li class="item3">
                                     <select name="sel" id="sel">
-                                        <option value="product.html#page1">Green-cap</option>
-                                        <option value="product.html#page2">Aluminum E-cap</option>
-                                        <option value="product.html#page3">New Products</option>
+                                        <option value="news.html#page1">뉴스</option>
+                                        <option value="news.html#page2">신제품 소개</option>
+                                        <option value="news.html#page3">채용FAQ</option>
                                     </select>
                                 </li>
                             </ul>
@@ -143,11 +182,50 @@
                 </section>
                 <section class="page" id="page2">
                     <figure class="sub_ban">
-                        <img src="./img/product_2.jpg" alt="Aluminum E-cap">
+                        <img src="./img/subBg_05.jpg" alt="신제품 소개">
                         <div class="tit_box">
-                            <h2 class="sub_tit">Aluminum E-cap</h2>
-                            <p class="sub_com">알루미늄 전해 커패시터 전해질로서 전도성 고분자와 전해액을 혼합 적용한 커패시터이다.<br>
-                                                유전체 자가복원이 가능한 전도성 고분자 하이브리드 알루미늄 전해 커패시터이다.</p>
+                            <h2 class="sub_tit">신제품 소개</h2>
+                            <div class="grid_box">
+                                <ul class="grid_wrap">
+                                    <li class="col2 item1">
+                                        <a href="">
+                                            <img src="./img/NN1.jpg" alt="">
+                                            <p class="col_com">Hybrid Cap(SMD Type) - YM Series</p>
+                                        </a>
+                                    </li>
+                                    <li class="col2 item2">
+                                        <a href="">
+                                            <img src="./img/NN2.jpg" alt="">
+                                            <p class="col_com">Hybrid Cap (Lead Type) - YL Series</p>
+                                        </a>
+                                    </li>
+                                    <li class="col2 item3">
+                                        <a href="">
+                                            <img src="./img/NN3.jpg" alt="">
+                                            <p class="col_com">Radial lead type aluminum electrolytic<br> Capacitors - BN Series</p>
+                                        </a>
+                                    </li>
+                                    <li class="col2 item4">
+                                        <a href="">
+                                            <img src="./img/NN4.jpg" alt="">
+                                            <p class="col_com">Snap-in Type Aluminum Electrolytic<br> Capacitor - JR series</p>
+                                        </a>
+                                    </li>
+                                    <li class="col2 item5">
+                                        <a href="">
+                                            <img src="./img/NN5.jpg" alt="">
+                                            <p class="col_com">Snap-in Type Aluminum Electrolytic<br> Capacitor - MH series</p>
+                                        </a>
+                                    </li>
+                                    <li class="col2 item6">
+                                        <a href="">
+                                            <img src="./img/NN6.jpg" alt="">
+                                            <p class="col_com"> Screw Type Aluminum Electrolytic Capacitor -<br> GY series </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         </div>
                     </figure>
                     <div class="bread_box">
@@ -156,12 +234,12 @@
                                 <li class="item1">
                                     <a href="index" class="home">HOME</a>
                                 </li>
-                                <li class="item2">제품소개</li>
+                                <li class="item2">새소식</li>
                                 <li class="item3">
-                                    <select name="sel" id="sel">product.html#page2">Aluminum E-cap
-                                        <option value="product.html#page2">Aluminum E-cap</option>
-                                        <option value="product.html#page1">Green-cap</option>
-                                        <option value="product.html#page3">New Products</option>
+                                    <select name="sel" id="sel">
+                                        <option value="news.html#page2">신제품 소개</option>
+                                        <option value="news.html#page1">뉴스</option>
+                                        <option value="news.html#page3">채용FAQ</option>
                                     </select>
                                 </li>
                             </ul>
@@ -170,12 +248,45 @@
                 </section>
                 <section class="page" id="page3">
                     <figure class="sub_ban">
-                        <img src="./img/product_3.jpg" alt="New Products">
+                        <img src="./img/news3.jpg" alt="New Products">
                         <div class="tit_box">
-                            <h2 class="sub_tit">New Products</h2>
-                            <p class="sub_com">Large Al E-cap<br>
-                                SNAP-IN 제품은 단자 형상을PCB에 기립하여 장착되는 부품으로 수삽이 용이하고, 제품의 전압 및 용량의 크기가 큰 장점을 갖는다.<br>
-                                SCREW TYPE 제품은 SCREW BOLT로 극성을 체결하는 부품으로, 대용량이나 산업용에 많이 사용되는 커패시터 입니다.</p>
+                            <h2 class="sub_tit">채용FAQ</h2>
+                            <table class="eq_board bLine">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" class="faq_q">Q.</td>
+                                        <td class="p_1_20 last">채용절차는 어떻게 되나요?</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" class="faq_a faq_bg">A.</td>
+                                        <td class="p_1_20 last faq_bg">모집(신문, 생활일간지, 인터넷 구인사이트) > 서류심사 > 면접전형 > 신체검사 > 최종합격자 발표 순입니다.</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" class="faq_q">Q.</td>
+                                        <td class="p_1_20 last">채용은 언제 하나요?</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" class="faq_a faq_bg">A.</td>
+                                        <td class="p_1_20 last faq_bg">특별한 시기가 정해진 것은 아니고, 수시로 채용합니다.</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" class="faq_q">Q.</td>
+                                        <td class="p_1_20 last">채용방식은요?</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" class="faq_a faq_bg">A.</td>
+                                        <td class="p_1_20 last faq_bg">공개모집을 원칙으로 하고 있으나 회사사정에 따라 탄력적으로 운용하고 있습니다.</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" class="faq_q">Q.</td>
+                                        <td class="p_1_20 last">서류심사는 주로 어떤 면을 중시하나요?</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" class="faq_a faq_bg">A.</td>
+                                        <td class="p_1_20 last faq_bg">서류 전반적인 부분들을 종합적으로 검토합니다.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </figure>
                     <div class="bread_box">
@@ -184,12 +295,12 @@
                                 <li class="item1">
                                     <a href="index" class="home">HOME</a>
                                 </li>
-                                <li class="item2">제품소개</li>
+                                <li class="item2">새소식</li>
                                 <li class="item3">
                                     <select name="sel" id="sel">
-                                        <option value="product.html#page3">New Products</option>
-                                        <option value="product.html#page1">Green-cap</option>
-                                        <option value="product.html#page2">Aluminum E-cap</option>
+                                        <option value="news.html#page3">채용FAQ</option>
+                                        <option value="news.html#page1">뉴스</option>
+                                        <option value="news.html#page2">신제품 소개</option>
                                     </select>
                                 </li>
                             </ul>

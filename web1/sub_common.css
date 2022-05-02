@@ -1,6 +1,6 @@
 @charset "UTF-8";
 #hd {  position:fixed; top: 0; left: 0; height:60px; z-index:999;
-background-color: rgba(255,255,255,0.75);   }   
+background-color: rgb(255, 255, 255);   }   
 .page { clear:both; min-height:100vh; display:none; width: 100%; }
 .sub_ban { clear:both; width: 100%; position:relative; }
 .sub_ban img { display:block; width: 100%; height:auto; }
