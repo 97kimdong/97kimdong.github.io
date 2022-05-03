@@ -130,7 +130,7 @@
                                 </li>
                                 <li class="item2">회사소개</li>
                                 <li class="item3">
-                                    <select name="sel" id="sel">
+                                    <select name="sel" id="sel" class="sel">
                                         <option value="company.html#page1">CEO 인사말</option>
                                         <option value="company.html#page2">회사소개</option>
                                         <option value="company.html#page3">관련사소개</option>
@@ -177,7 +177,7 @@
                                 </li>
                                 <li class="item2">회사소개</li>
                                 <li class="item3">
-                                    <select name="sel" id="sel">
+                                    <select name="sel" id="sel" class="sel">
                                         <option value="company.html#page2">회사소개</option>
                                         <option value="company.html#page1">CEO 인사말</option>
                                         <option value="company.html#page3">관련사소개</option>
@@ -215,7 +215,7 @@
                                 </li>
                                 <li class="item2">회사소개</li>
                                 <li class="item3">
-                                    <select name="sel" id="sel">
+                                    <select name="sel" id="sel" class="sel">
                                         <option value="company.html#page3">관련사소개</option>
                                         <option value="company.html#page1">CEO 인사말</option>
                                         <option value="company.html#page2">회사소개</option>
@@ -246,7 +246,7 @@
                                 </li>
                                 <li class="item2">회사소개</li>
                                 <li class="item3">
-                                    <select name="sel" id="sel">
+                                    <select name="sel" id="sel" class="sel">
                                         <option value="company.html#page4">찾아오시는 길</option>
                                         <option value="company.html#page1">CEO 인사말</option>
                                         <option value="company.html#page2">회사소개</option>
@@ -258,6 +258,13 @@
                     </div>
                 </section>
             </div>
+            <script>
+                $(document).ready(function(){
+                    $(".sel").change(function(){
+                        location.href = this.value;
+                    });
+                });    
+                </script>
         </div>
         <footer id="ft">
             <div class="ft_wrap">

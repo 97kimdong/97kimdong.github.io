@@ -47,6 +47,73 @@
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="sub_common.css">
     <style>
+    .bLine {
+    border-top: 2px solid #000;
+}   .ep_board {
+    width: 100%;
+    border-top: 2px solid #000;
+    margin-top: 20px;
+}   table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}   body, textarea, input, select {
+    color: #000;
+    font-size: 14px;
+    line-height: 160%;
+    font-family: "Segoe UI", Tahoma, Arial, "Malgun Gothic", "Apple Gothic",sans-serif;
+    font-weight: normal;
+    -webkit-text-size-adjust: none;
+}   colgroup {
+    display: table-column-group;
+}   tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}   tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}   th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}   .ep_board td {
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px 0 15px 0px;
+    line-height: 20px;
+}   td {
+    display: table-cell;
+    vertical-align: inherit;
+}   .p_l_20 {
+    padding-left: 20px !important;
+}   .ep_board td {
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px 0 15px 0px;
+    line-height: 20px;
+}   .conTitle { 
+    padding-top: 50px;
+    text-align: center;
+}   .ep_board th {
+    border-right: 1px solid #e5e5e5;
+    font-size: 16px;
+    border-bottom: 1px solid #666;
+    height: 60px;
+    text-align: center;
+    font-weight: bold;
+    color: #000;
+}   #contentsArea > .content {
+    padding-top: 50px;
+    overflow: hidden;
+}   .ep_board .last {
+    border-right: 0px;
+}   
     </style>
 </head>
 <body>
@@ -86,9 +153,9 @@
                         <li>
                             <span>새소식</span>
                             <ul class="sub">
-                                <li><a href="new.html#page1">뉴스</a></li>
-                                <li><a href="new.html#page2">신제품 소개</a></li>
-                                <li><a href="new.html#page3">인증 및 특허</a></li>
+                                <li><a href="news.html#page1">뉴스</a></li>
+                                <li><a href="news.html#page2">신제품 소개</a></li>
+                                <li><a href="news.html#page3">인증 및 특허</a></li>
                             </ul>
                         </li>
                         <li>
@@ -110,18 +177,70 @@
                 </p>
             </div>
         </header>
-        <div id="content">
+        <div id="content1">
             <div class="content_wrap">
                 <section class="page" id="page1">
                     <figure class="sub_ban">
-                        <img src="./img/technique1.jpg" alt="Green-Cap(EDLC)">
-                        <div class="tit_box">
-                            <h2 class="sub_tit">Green-Cap(EDLC)</h2>
-                            <p class="sub_com">EDLC의 특징<br>
-                                환경 친화적인 활성탄 전극을 사용<br>
-                                기존 전해 콘덴서에 비해 높은 에너지 밀고 제공<br>
-                                리튬이차전지에 비해 높은 출력밀도, 높은 충반전 효율을 가짐<br>
-                                화학반응이 아닌 몰리적 흡 · 탈착에 의해 빠른 충전 및 방전이 가능하고, 긴 사이클 특성을 가지고 있음.</p>
+                        <img src="./img/subBg_05.jpg" alt="Green-Cap(EDLC)">
+                        <div class="tit_box2">
+                            <h1 class="conTitle">Green-Cap(EDLC)</h1>
+                            <div class="content">
+                                <table class="ep_board bLine">
+                                        <colgroup><col width="80">
+                                        <col width="*">
+                                        <col width="150">
+                                </colgroup><tbody><tr class="boardNone">
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th class="last">상세보기</th>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">1</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Green-Cap(EDLC) 원리 및 특징</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/1. Green-Cap(EDLC) 원리 및 특징.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">2</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">에너지 저장 장치 별 특성 비교</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/2. 에너지 저장 장치 별 특성 비교.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">3</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Green-Cap(EDLC) 특성 측정 방법</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/3. Green-Cap(EDLC) 특성 측정 방법.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">4</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Green-Cap(EDLC) 특성 계산 방법</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/4. Green-Cap(EDLC) 특성 계산 방법.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">5</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Green-Cap(EDLC) 모듈 전압, 용량, 저항 계산 방법</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/5. Green-Cap(EDLC) 모듈 전압, 용량, 저항 계산 방법.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">6</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Green-Cap(EDLC) 기대 수명</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/6. Green-Cap(EDLC) 기대 수명.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">7</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Green-Cap(EDLC) Application</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/7. Green-Cap(EDLC) Application.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">8</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Green-Cap(EDLC) 인증 내역</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/8. Green-Cap(EDLC) 인증 내역.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">9</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Green-Cap(EDLC) 운송규격 (UN 3499)</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/9. Green-Cap(EDLC) 운송규격 (UN 3499).pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                            </tbody></table>
+                            </div>
                         </div>
                     </figure>
                     <div class="bread_box">
@@ -132,7 +251,7 @@
                                 </li>
                                 <li class="item2">기술정보</li>
                                 <li class="item3">
-                                    <select name="sel" id="sel">
+                                    <select name="sel" id="sel"  class="sel">
                                         <option value="product.html#page1">Green-Cap(EDLC)</option>
                                         <option value="product.html#page2">Hybrid Cap</option>
                                         <option value="product.html#page3">Aluminum Cap</option>
@@ -146,12 +265,46 @@
                 </section>
                 <section class="page" id="page2">
                     <figure class="sub_ban">
-                        <img src="./img/technique2.jpg" alt="Hybrid Cap">
-                        <div class="tit_box">
-                            <h2 class="sub_tit">Hybrid Cap</h2>
-                            <p class="sub_com">Hybrid Cap 이란?<br>
-                            전도성 고분자 하이브리드 알루미늄 전해 커패시터(Conductive Polymer Hybrid Aluminum Electrolytic Capacitor)<br>
-                            알루미늄 전해 커패시터 전해질로 전도성 고분자와 전해액을 혼합 적용한 커패시터</p>
+                        <img src="./img/subBg_05.jpg" alt="Hybrid Cap">
+                        <div class="tit_box2">
+                            <h1 class="conTitle">Hybrid Cap</h1>
+                            <div class="content1">
+                                <table class="ep_board bLine">
+                                        <colgroup><col width="80">
+                                        <col width="*">
+                                        <col width="150">
+                                </colgroup><tbody><tr class="boardNone">
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th class="last">상세보기</th>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">1</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Hybrid Cap 이란</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/1. Hybrid Cap 이란.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">2</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">커패시터별 비교(Hybrid Cap)</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/2. 커패시터별 비교(Hybrid Cap).pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">3</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Hybrid Cap 기대수명</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/3. Hybrid Cap 기대수명.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">4</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Hybrid Cap Application</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/4. Hybrid Cap Application.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">5</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">Hybrid Cap 리플로우 규격</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/5. Hybrid Cap 리플로우 규격.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                            </tbody></table>
+                            </div>
                         </div>
                     </figure>
                     <div class="bread_box">
@@ -162,7 +315,7 @@
                                 </li>
                                 <li class="item2">기술정보</li>
                                 <li class="item3">
-                                    <select name="sel" id="sel">
+                                    <select name="sel" id="sel"  class="sel">
                                         <option value="product.html#page2">Hybrid Cap</option>
                                         <option value="product.html#page1">Green-Cap(EDLC)</option>
                                         <option value="product.html#page3">Aluminum Cap</option>
@@ -174,16 +327,46 @@
                 </section>
                 <section class="page" id="page3">
                     <figure class="sub_ban">
-                        <img src="./img/technique3.jpg" alt="Aluminum Cap">
-                        <div class="tit_box">
-                            <h2 class="sub_tit">Aluminum Cap</h2>
-                            <p class="sub_com">Features<br>
-                                높은 신뢰성과 긴 수명(20.000 시간)<br>
-                                고전압 특성(600WV)<br>
-                                생활가전용 전원 공급 장치에 적합<br>
-                                손쉬운 장착 가능 터미널<br>
-                                볼트형 단자<br>
-                                산업 전력 및 인버터 적용</p>
+                        <img src="./img/subBg_05.jpg" alt="Aluminum Cap">
+                        <div class="tit_box2">
+                            <h1 class="conTitle">Aluminum Cap</h1>
+                            <div class="content1">
+                                <table class="ep_board bLine">
+                                        <colgroup><col width="80">
+                                        <col width="*">
+                                        <col width="150">
+                                </colgroup><tbody><tr class="boardNone">
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th class="last">상세보기</th>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">1</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">전해 커패시터 가이드라인</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/1. 전해 커패시터 가이드라인.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">2</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">전해 CAPACITOR Application</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/2. 전해 CAPACITOR Application.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">3</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">전해 CAPACITOR 리플로우 규격</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/3. 전해 CAPACITOR 리플로우 규격.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">4</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">전해 CAPACITOR 기대수명</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/4. 전해 CAPACITOR 기대수명.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="ep_date mct">5</td>
+                                    <td class="p_l_20"><a href="#" target="_blank">전해 CAPACITOR Screw type 토크 자료</a></td>
+                                    <td align="center" class="ep_date boardNone last"><a href="tech/5. 전해 CAPACITOR Screw type 토크 자료.pdf" class="btn_08 round_1" target="_blank">VIEW</a></td>
+                                </tr>
+                            </tbody></table>
+                            </div>
                         </div>
                     </figure>
                     <div class="bread_box">
@@ -194,7 +377,7 @@
                                 </li>
                                 <li class="item2">기술정보</li>
                                 <li class="item3">
-                                    <select name="sel" id="sel">
+                                    <select name="sel" id="sel"  class="sel">
                                         <option value="product.html#page3">Aluminum Cap</option>
                                         <option value="product.html#page1">Green-Cap(EDLC)</option>
                                         <option value="product.html#page2">Aluminum Cap</option>
@@ -205,6 +388,13 @@
                     </div>
                 </section>
             </div>
+            <script>
+                $(document).ready(function(){
+                    $(".sel").change(function(){
+                        location.href = this.value;
+                    });
+                });    
+                </script>
         </div>
         <footer id="ft">
             <div class="ft_wrap">
