@@ -10,7 +10,7 @@ padding-left: 850px; color:#333; text-shadow:1px 1px 1px #333; display: table; w
     padding-left: 450px; color:#333; text-shadow:1px 1px 1px #333; }
 .tit_box { position:absolute; top:0px; left: 0px; z-index:30; padding-top: 350px; 
         padding-left: 100px; color:#333; text-shadow:1px 1px 1px #333; }
-.tit_box3 { position:absolute; top:0px; left: 0px; z-index:30; padding-top: 350px; 
+.tit_box3 { top:0px; left: 0px; z-index:30; 
             padding-left: 0px; color:#333; text-shadow:1px 1px 1px #333; }
 .sub_tit { font-size:48px; }
 .sub_com { font-size:20px; padding-top: 40px; }
@@ -27,3 +27,4 @@ padding-left: 850px; color:#333; text-shadow:1px 1px 1px #333; display: table; w
 .page_wrap { width: 1280px; margin: 0 auto; min-height:50vh; }
 .tit_box6 { position:absolute; top:250px; left: 640px; z-index:30; padding-top: 350px; 
     padding-left: 850px; color:#333; text-shadow:1px 1px 1px #333; display: table; width: 800px; margin: 0 auto; border-collapse: collapse;}
+.m_scroll {width: 1600px; margin: 0 auto;}
