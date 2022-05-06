@@ -1,0 +1,284 @@
+@charset "UTF-8";
+
+.page { clear:both; min-height:100vh; display:none; width: 100%; }
+.sub_ban { top: 100px; clear:both; width: 100%; position:relative; }
+.sub_ban .img { display:block; width: 100%; height:auto; }
+.tit_box {position:absolute; width: 100%; top:20px; left: 0px; z-index:30; padding-top: 150px; 
+color:#fff; text-shadow:1px 1px 1px #333;}
+.sub_tit { font-size:48px; text-align: center;}
+.sub_com1 { font-size:50px; padding-top: 50px; text-align: center;}
+.sub_com2 { font-size:20px; padding-top: 50px; text-align: center;}
+#page1 .tit_box, #page4 .tit_box { color:#fff; text-shadow:1px 1px 1px #333;}
+/* .bread_box { clear: both; width: 100%; height: 48px; border-bottom:3px solid #f1f1f1; top: 50px;}
+.bread_wrap { width: 1280px; margin: 0 auto;  }
+.bread { height: 48px; line-height: 48px;  }
+.bread li { float:left; padding-right: 30px; }
+.bread li:after { content:">"; padding-left: 24px; }
+.bread li:last-child::after { content: ""; } */
+.page:target { display:block; }
+.page_con { clear:both; width: 100%; }
+.page_wrap { width: 1280px; margin: 0 auto; min-height:20vh; }
+.redline{
+content: "";
+    position: absolute;
+    bottom: -170px;
+    left: 50%;
+    width: 170px;
+    height: 1px;
+    background: #c20100;
+    transform: translateX(-50%);
+}
+.img2{
+    display: block;
+    width: auto;
+    margin-top: 50px;
+    margin-left: 850px;
+}
+
+.item{
+    float: left;
+    margin-left: 100px;
+    margin-top: 150px;
+    width: 350px;
+    height: 300px;
+    text-align: center;
+}
+.item2{
+    float: left;
+    margin-left: 200px;
+    width: 350px;
+    height: 300px;
+    text-align: center;
+}
+
+.item_h{font-size: 23px; margin-top: 10px;}
+.item_p{font-size: 15px; margin-top: 20px; color: #777;}
+
+.sub3_p{position: relative;
+    text-align: center;
+top: -300px;
+color: red;
+font-size: 18px;
+}
+.sub3_h{position: relative;
+    text-align: center;
+top: -250px;
+font-size: 40px;
+line-height: 1.3em;
+}
+.sub3_shadow{position: relative;
+    text-align: center;
+top: -240px;
+color: #fff;
+text-shadow: 0px 0px 10px rgb(0 0 0);
+opacity: 0.2;
+font-weight: 900;
+font-size: 130px;
+}
+
+.sub3_ul{
+    position: relative;
+    left: 900px;
+    top: -290px;
+}
+.sub3_ul span{
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+}
+.sub3_ul li{
+    padding-left: 100px;
+    line-height: 1.4em;
+    margin-bottom: 20px;
+}
+
+.itembox{
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 300px;
+    margin-top: 100px;
+}
+.itembox2{
+    float: left;
+    margin-left: 1400px;
+    margin-top: -480px;
+}
+.sub5_item{
+    text-align: center;
+    width: 20%;
+    box-sizing: border-box;
+    border: 1px solid #e1e1e1;
+    padding: 60px 0 40px;
+    border-right: none;
+}
+.sub5_item3{
+}
+.sub5_item_h{font-size: 16px; margin-top: 10px;}
+.sub5_item_p{font-size: 15px; margin-top: 5px; color: #777;}
+
+.menubar{clear: both; 
+    position: relative;
+    top: 100px;    
+    
+    height: 55px; width: 100%;}
+
+.menubar li { padding-top: 10px; float:left; padding-right: 30px; padding-left: 50px;
+font-size: 15px; line-height: 2; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
+.menubar li .sel option {font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
+.menubar li:after { content:">"; padding-left: 24px; }
+.menubar li:last-child::after { content: ""; }
+
+.prolist{
+    float: left;
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    padding-left: 100px;
+    padding-top: 50px;
+    height: 1200px;
+}
+.prolist .serchbar{
+    position: relative;
+    border-radius: 10px;
+    vertical-align: middle;
+    font-size: 18px;
+    width: 200px;
+    height: 25px;
+    left: 10px;
+}
+.prolist button{
+    position: relative;
+    max-width: 0;
+    left: 20px;
+}
+.prolist button img{
+position: relative;
+top: 8px;
+width: 23px;
+height: 23px;
+cursor: pointer;
+}
+.prolist li {
+    position: relative;
+    top: 20px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    left: 30px;
+
+}
+.prolist li ul li:hover{
+    color: red;
+    cursor: pointer;
+}
+.prolist a{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    font-weight: bold;
+    font-size: 19px;
+    color: #222;
+    line-height: 56px;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 0 14px 0 22px;
+    transition: 0.3s;
+}
+.prolist a:hover{
+    color: red;
+}
+
+.prolist li ul li span {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+    height: 17px;
+    background : url(../img/icon_chk0000.jpg) 50% 50% no-repeat;
+    cursor: pointer;
+}
+
+.probox{
+float: left;
+position: relative;
+left: 100px;
+top: 55px;
+width: 1200px;
+height: 900px;
+display: flex;
+flex-wrap: wrap;
+
+
+}
+.pro1 img{position: relative;
+    max-width: 50%;
+    max-height: 50%;
+}
+.probox .btn{   
+    position: relative; 
+    top: 50px;
+    display: inline-block;
+    width: 160px;
+    line-height: 42px;
+    vertical-align: top;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.05em;
+    color: #6e6e6e;
+    border: 1px solid #6e6e6e;
+    text-align: center;
+    border-radius: 21px;
+    margin: 0;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.probox .btn:hover{
+    border: 1px solid #ff0000;
+    color: red;
+}
+.pro1{
+    position: relative;
+    width: calc(33.3% - 50px);
+    height: 40%;
+    text-align: center;
+    border: 1px solid #777;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 30px 0;
+    transition: 0.4s;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+.pro1:hover{
+    position: relative;
+    width: calc(33.3% - 45px);
+    height: 40%;
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 30px 0;
+    transition: 0.4s;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+
+.probox h3, p{
+    position: relative;
+    top: 20px;
+    text-align: center;
+}
+.probox p{
+    top: 30px;
+    color: #777;
+    font-size: 12px;
+}
+
+ul,li {list-style: none;}
