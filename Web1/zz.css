@@ -1,0 +1,230 @@
+#footer .inner {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+@media screen and (max-width: 1400px) {
+    #footer .inner {
+        margin: 0 30px;
+   }
+}
+@media screen and (max-width: 1023px) {
+    #footer .inner {
+        margin: 0;
+        text-align: center;
+   }
+}
+#footer .footSns {
+    font-size: 0;
+    padding: 18px 0;
+    background: #327cb6;
+}
+#footer .footSns .tit {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+@media screen and (max-width: 767px) {
+    #footer .footSns .tit {
+        display: none;
+   }
+}
+#footer .footSns .link {
+    display: inline-block;
+    vertical-align: middle;
+}
+#footer .footSns .link a {
+    margin: 0 10px;
+    font: 0/0 a;
+    vertical-align: middle;
+    background-size: cover;
+}
+#footer .footSns .link a.link1 {
+    background-image: url('/resource/images/icon_quick_link1.png');
+}
+#footer .footSns .link a.link2 {
+    background-image: url('/resource/images/icon_quick_link2.png');
+}
+#footer .footSns .link a.link3 {
+    background-image: url('/resource/images/icon_quick_link3.png');
+}
+#footer .footSns .link a.link4 {
+    background-image: url('/resource/images/icon_quick_link4.png');
+}
+#footer .footSns .link a.link5 {
+    background-image: url('/resource/images/icon_quick_link5.png');
+}
+#footer .footSns .link a.link6 {
+    background-image: url('/resource/images/icon_quick_link6.png');
+}
+@media screen and (max-width: 767px) {
+    #footer .footSns .link a {
+        width: r(80);
+        height: r(80);
+   }
+}
+#footer .footLink {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+@media screen and (max-width: 1023px) {
+    #footer .footLink {
+        padding: r(15) 0;
+   }
+}
+#footer .footLink span {
+    display: inline-block;
+}
+#footer .footLink span ~ span {
+    position: relative;
+    margin-left: 10px;
+    padding-left: 14px;
+}
+#footer .footLink span ~ span:after {
+    content: "";
+    height: 16px;
+    margin-top: -7px;
+    border-left: 1px solid #ddd;
+}
+@media screen and (max-width: 767px) {
+    #footer .footLink span ~ span:after {
+        height: r(16);
+        margin-top: r(-4);
+   }
+    #footer .footLink span ~ span:nth-of-type(4) {
+        margin: 0;
+        padding: 0;
+   }
+    #footer .footLink span ~ span:nth-of-type(4):after {
+        display: none;
+   }
+}
+#footer .footLink a {
+    font-size: 16px;
+    color: #000;
+}
+@media screen and (max-width: 767px) {
+    #footer .footLink a {
+        font-size: r(24);
+   }
+}
+#footer .footLink .net {
+    color: #666;
+}
+#footer .footLink .net a {
+    display: inline-block;
+    padding: 3px 42px 3px 0;
+    background: url('/resource/images/icon_network_link.png') no-repeat 100% 50%;
+    background-size: 28px;
+}
+@media screen and (max-width: 767px) {
+    #footer .footLink .net a {
+        padding: r(4) r(50) r(4) 0;
+        background-size: auto 100%;
+   }
+}
+@media screen and (max-width: 1023px) {
+    #footer .footLink .net {
+        position: static;
+        margin: r(15) 0 0;
+        padding: r(15) 0 0;
+        border-top: 1px solid #ddd;
+   }
+}
+#footer .footInfo .inner {
+    padding: 25px 0 50px;
+    background: url('/resource/images/img_logo.png') no-repeat 100% 25px;
+    background-size: 245px;
+    font-size: 16px;
+}
+@media screen and (max-width: 1023px) {
+    #footer .footInfo .inner {
+        padding: r(120) 0 r(100);
+        background-position: 50% r(30);
+   }
+}
+@media screen and (max-width: 767px) {
+    #footer .footInfo .inner {
+        background-size: auto r(60);
+        font-size: r(22);
+   }
+}
+#footer .footInfo .inner b {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #000;
+}
+@media screen and (max-width: 767px) {
+    #footer .footInfo .inner b {
+        display: none;
+   }
+}
+#footer .footInfo .inner span {
+    display: inline-block;
+    margin-right: 15px;
+    color: #666;
+}
+#footer .footInfo .copy {
+    display: block;
+    margin: 15px 0 0;
+    font-size: 14px;
+    color: #444;
+}
+@media screen and (max-width: 767px) {
+    #footer .footInfo .copy {
+        margin: r(15) 0 0;
+        font-size: r(22);
+        color: #999;
+   }
+}
+@media screen and (max-width: 767px) {
+    .fixBtn {
+        right: r(20);
+        bottom: r(20);
+   }
+}
+.fixBtn a {
+    display: block;
+    width: 60px;
+    margin: 0 0 10px;
+}
+.fixBtn a img {
+    width: 100%;
+}
+@media screen and (max-width: 767px) {
+    .fixBtn a {
+        width: r(80);
+        margin: 0 0 r(10);
+   }
+}
+.fixBtn .btnTop {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 2px solid #dbdbdb;
+    color: #afa7a7;
+    font-size: 12px;
+}
+@media screen and (max-width: 767px) {
+    .fixBtn .btnTop {
+        width: r(80);
+        height: r(80);
+        font-size: r(22);
+   }
+}
+.fixBtn .btnTop:before {
+    content: "";
+    margin: 5px auto 0;
+    background: url('/resource/images/btn_top.png') no-repeat;
+}
+@media screen and (max-width: 767px) {
+    .fixBtn .btnTop:before {
+        width: r(20);
+        height: r(30);
+        background-size: cover;
+   }
+}

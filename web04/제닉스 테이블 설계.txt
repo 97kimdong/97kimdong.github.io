@@ -1,0 +1,105 @@
+create table board(seq number primary key, -- 게시판
+title varchar2(100) not null,
+content varchar2(800) not null,
+nickname varchar2(20),
+regdate date,
+visited number
+);
+
+insert into board values(1, '샘플 글 제목1입니다.', '여기는 샘플 글1에 대한 내용입니다.', 'admin', sysdate, 0);
+insert into board values((select nvl(max(seq), 0)+1 from board), '샘플2 제목입니다.', '샘플글 2 여기는 샘플 글1에 대한 내용입니다.', 'admin', sysdate, 0);
+insert into board values((select nvl(max(seq), 0)+1 from board), '샘플3 제목입니다.', '샘플글 3 여기는 샘플 글1에 대한 내용입니다.', 'admin', sysdate, 0);
+insert into board values((select nvl(max(seq), 0)+1 from board), '샘플4 제목입니다.', '샘플글 4 여기는 샘플 글1에 대한 내용입니다.', 'admin', sysdate, 0);
+insert into board values((select nvl(max(seq), 0)+1 from board), '샘플5 제목입니다.', '샘플글 5 여기는 샘플 글1에 대한 내용입니다.', 'admin', sysdate, 0);
+
+commit;
+
+create table member(userid varchar2(20) primary key,	-- 회원테이블
+userpw varchar2(300) not null,
+username varchar2(20) not null,
+email varchar2(100) not null,
+tel varchar2(20) not null,
+addr1 varchar2(200),
+addr2 varchar2(100),
+postcode varchar2(10),
+regdate date default sysdate,
+birth date
+);
+
+
+
+create table goods(gno number primary key,	-- 제품테이블
+gname varchar2(50) not null,
+gtype varchar2(100) not null,
+gprice varchar2(50) not null,
+gcolor varchar2(50) not null,
+gcomtent varchar2(500) not null,
+amount number,
+gimg1 varchar2(200),
+gimg2 varchar2(200),
+);
+
+create table product(pno number primary key,	-- 제품게시판
+ptitle varchar2(100) not null,
+pcontent varchar2(800) not null,
+pcompany varchar2(20),
+regdate date,
+visited number	
+);
+
+
+create table payment(ono number primary key, -- 결제번호
+    paytype varchar2(20),   -- 결제방식
+    payno varchar2(30),     -- 결제카드번호
+    money number,           -- 결제금액
+    sdate date,             -- 결제일
+    gno number,             -- 상품코드
+    amount number,          -- 수량
+    userid varchar2(20),    -- 사용자아이디
+    rname varchar2(30),     -- 수신자명
+    tel varchar2(20),       -- 수신자전화번호
+    addr1 varchar2(200),    -- 수신자 기본주소
+    addr2 varchar2(100),    -- 수신자 상세주소
+    postcode varchar2(10),  -- 수신자 우편번호
+    transno varchar2(50),   -- 배송코드
+    transco varchar2(50),   -- 배송회사
+    rstatus varchar2(20),   -- 수신상태
+    rdate date,             -- 도착일
+    memo varchar2(100)     -- 메모
+);
+
+
+create table basket(bno number primary key, -- 장바구니번호
+userid varchar2(20),    -- 사용자아이디
+gno number,             -- 상품코드
+gcolor varchar2(40),    -- 색상
+amount number,          -- 수량
+gsize varchar2(40),     -- 크기
+bdate Date);            -- 장바구니 담긴 날짜
+
+create table databank (
+    datano number primary key,
+    dtitle varchar2(255) not null,
+    dcontent varchar2(1000),
+    dposter varchar2(255),
+    dfilename varchar2(255),
+    dview char(1) default 'Y',
+    regdate date default sysdate
+);
+
+CREATE TABLE qna(
+    qno         NUMBER PRIMARY KEY,
+    qtitle       VARCHAR2(300) NOT NULL,
+    qcontent     VARCHAR2(4000) NOT NULL,
+    qwriter      VARCHAR2(20) NOT NULL,
+    qwritedate   DATE DEFAULT SYSDATE,
+    qreadcnt     NUMBER DEFAULT 0,
+    qroot        NUMBER,
+    qstep        NUMBER default 0,
+    qindent      NUMBER default 0 
+);
+
+CREATE SEQUENCE seq_qna START WITH 1 INCREMENT BY 1;
+
+
+commit;

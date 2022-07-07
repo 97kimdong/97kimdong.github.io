@@ -1,0 +1,159 @@
+create database myshop;
+commit;
+use myshop;
+create table customer(
+seq int auto_increment,					/*고객 식별번호*/
+state int not null default 1,			/* 1:일반회원 3:휴면계정 9:관리자 */
+grade int not null default 1,			/* 1:일반 3:브론즈 5:실버 7:골드 9:플레티넘 11:다이야 */
+email varchar(200) not null,			/* 이메일 주소(아이디 대신 사용) */
+pw varchar(200) not null,				/* 비밀번호 */
+name varchar(20) not null,				/* 이름 */
+phonenum varchar(20) not null,			/* 핸드폰번호 */
+addr1 varchar(100),						/* 주소 */
+addr2 varchar(100),						/* 상세주소 */
+zipcode varchar(20),					/* 우편번호 */
+cnt int default 0,						/* 로그인카운트 */
+regdate datetime,						/* 가입일자 */
+login_date datetime,					/* 최종로그인 일자 */
+moddate datetime,						/* 정보수정 일자 */
+primary key (seq, email));
+
+
+
+insert into customer(email,pw,name,phonenum,addr1,addr2,zipcode,regdate)
+values("jyj1004@gmail.com","1234","조재영","010-1234-5678","경기도 일산구 대화동","아이파크 한강뷰","1234",now());
+
+
+
+
+create table mypoint(
+seq int auto_increment primary key,			/* 식별번호 */
+order_no int not null,						/* 주문번호 */
+state int not null,							/* 1:적립 3:사용 */
+cus_seq int not null,						/* 고객 식별번호 */
+mypoint int not null,						/* 마이포인트 */
+reason int,									/* 1:주문적립 3:이벤트 적립 5:사용 */
+regdate datetime);							/* 사용일자 */
+
+insert into mypoint(order_no,state,cus_seq,mypoint,reason,regdate)
+values(1,1,1,1000,1,now());
+
+
+
+create table product(
+seq int auto_increment,						/* 식별번호 */
+pcode varchar(30) not null,					/* 품목번호 */
+state int not null default 1,				/* 1:노출 3:비노출 */
+pname varchar(200) not null,				/* 제품명 */
+price int not null,							/* 제품단가(VAT 포함가격) */
+invt int not null,							/* 재고 */
+allocate_invt int not null default 0,		/* 할당재고 */
+discount int not null default 0,			/* 할인율 */
+unit varchar(30),							/* 판매단위 */
+subname varchar(200),						/* 제품설명 */
+origin varchar(30),							/* 원산지 */
+guidelines varchar(400),					/* 안내사항 */
+regdate datetime,							/* 등록일 */
+primary key (seq, pcode));
+
+
+insert into product(pcode,pname,price,invt,unit,subname,origin,guidelines,regdate)
+values("p0001","무기농 양파",12000,100,"200g","성필이가 취미로 키운 양파","대한민국","취미로 키운 만큼 맛은 보장할 수 없습니다.",now());
+
+
+create table product_add(
+seq int auto_increment primary key,		/* 식별번호 */
+pcode varchar(30) not null,				/* 품목번호 */
+division varchar(4),					/* s:썸네일 ds:제품상세 썸네일 dm:제품상세 메인 */
+img_desc varchar(200));					/* 이미지 경로 */
+
+insert into product_add(pcode, division, img_desc)
+values("p0001", "s", "c:\jy\web05\img\a\p0001\hothot.jpeg");
+
+
+
+create table notice(
+seq int auto_increment primary key,		/* 식별번호 */
+cus_seq int not null,					/* 고객 식별번호 */
+title varchar(200),						/* 공지사항 제목 */
+content varchar(4000),					/* 공지사항 내용 */
+cnt int default 0,						/* 조회수 */
+regdate datetime);						/* 작성일 */
+
+insert into(cus_seq, title, content, regdate)
+values(1, "재영이 날다", "r 쿨타임 2분", now());
+
+
+
+create table qna(
+seq int auto_increment primary key,		/* 식별번호 */
+cus_seq int not null,					/* 고객 식별번호 */
+qroot int not null,						/* 부모 식별번호 */
+qstep int not null,						/* 1:질문 2:답변 */
+qindent int not null,					/* 들여쓰기(px단위) */
+title varchar(200),						/* qna 제목 */
+content varchar(4000),					/* qna 내용 */
+cnt int default 0,						/* 조회수 */
+regdate datetime);						/* 작성일 */
+
+/* 질문 */
+create table qna(cus_seq,qroot,qstep,qindent,title,content,regdate);
+values(1,1,1,0,"재영이 얼마에요?","한시간 쓰려고 반납 하려는데 얼마인가요?",now());
+
+/* 답변 */
+create table qna(cus_seq,qroot,qstep,qindent,title,content,regdate);
+values(2,1,2,14,"re:재영이 얼마에요?","무반납 조건으로 가져가세요",now());
+
+
+create table order_master(
+seq int auto_increment,			/* 식별번호 */
+order_no int not null,			/* 주문번호 */
+order_step int default 1,		/* 1:접수중 3:배송중 5:배송완료 */
+payment_status int not null,	/* 1:입금대기 3:입금확인 */
+price int,						/* 상품금액(VAT 포함) */
+use_point int,					/* 사용 포인트 */
+save_point int,					/* 적립 포인트 */
+total_price int,				/* 최종금액 */
+cus_seq int not null,			/* 고객 식별번호 */
+delivery_cus varchar(20),		/* 받는사람 이름 */
+delivery_addr1 varchar(100),	/* 받는주소 */
+delivery_addr2 varchar(100),	/* 받는주소 상세 */
+delivery_zip_code varchar(20),	/* 받는주소 우편번호 */
+delivery_memo varchar(100),		/* 메모 */
+regdate datetime,				/* 주문일자 */
+primary key (seq, order_no));
+
+
+
+insert into order_master(payment_status,price,use_point,save_point,total_price,m_point,cus_seq,delivery_cus,delivery_addr1,delivery_addr2,delivery_zip_code,delivery_memo,regdate)
+values(1,112000,12000,1000,100000,1,"김동협","경기 고양시 덕양구 충장로475번길 1","장미빌라 3층","222111","고객 요청으로 재영이 사진 동봉 필요",now());
+
+
+create table order_line(
+seq int auto_increment primary key,		/* 식별번호 */
+order_no int not null,					/* 주문번호 */
+pcode varchar(30) not null,				/* 제품번호 */
+price int not null,						/* 제품단가 */
+qty int not null);						/* 구매수량 */
+
+
+insert into order_line(order_no,pcode,price,qty)
+values(1,"p0001",12000,10);
+
+
+create table basket(
+seq int auto_increment primary key,		/* 식별번호 */
+cus_seq int not null,					/* 고객 식별번호 */
+pcode varchar(30),						/* 품목코드 */
+qty int,								/* 수량 */
+regdate datetime);						/* 선택일자 */
+
+insert into basket(cus_seq, pcode, qty, regdate)
+values(1, "p0001", 4, now());
+
+
+
+
+
+
+

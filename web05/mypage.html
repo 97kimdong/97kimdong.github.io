@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <!-- 스크립트 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>$(function(){ $(".hd_wrap").load("hd.html");$(".ft_wrap").load("ft.html");});</script>
+    <!-- /스크립트 연결 -->
+    <title>Document</title>
+    <style>
+        /* 초기화 */
+        * { margin: 0; padding: 0;}
+        ul { list-style: none; } 
+        a { text-decoration: none; color: #222; }
+        html, body { height: 100%;}
+        #container{clear: both; width: 100%;}
+        .container_wrap{clear: both; width: 100%; }
+        .main_wrap{clear: both; width: 1400px; margin: 0 auto; }
+        /* /초기화 */
+        /* 왼쪽 메뉴 */
+        #left_gnb{
+            float: left;
+            width: 13%;
+            /* min-width: 180px; */
+        }
+        #left_gnb>ul>.gnb_menu>a{
+            display: block;
+            font-size: 16px;
+            padding: 15px 10px 15px 16px;
+            background-color: #222;
+            color: #e2e2e2;
+        }
+        #left_gnb>ul>.gnb_menu>a:first-child{
+            border-top: 1px solid #515151;
+        }
+        #left_gnb>ul>.gnb_menu>ul>.gnb_sub_menu>a{
+            display: block;
+            border-bottom: 1px solid #515151;
+            border-left: 1px solid #515151;
+            border-right: 1px solid #515151;
+            font-size: 14px;
+            padding: 15px 10px 15px 16px;
+            background-color: #ffffff;
+            color: #222;
+        }
+        #left_gnb>ul>.gnb_menu>ul>.gnb_sub_menu:hover a{
+            background-color: #dbdbdb;
+            color: #222;
+        }
+        /* /왼쪽 메뉴 */
+        
+        .btn_black { width: 80px; height: 30px;}
+
+        .mypage_box { display: block; width: 1100px; padding-top: 30px; padding-left: 40px; float: left; }
+        .mypage_tb { display: table; border-collapse: collapse; width: 500px; }
+        .mypage_tb tr { display: table-row; }
+        .mypage_tb tr td { display: table-cell; float: left; width: 25%; font-size: 17px;   }
+        .bo{
+            border: 1px solid #333;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <div class="hd_wrap"></div>
+        </header>
+        <div id="container">
+            <div class="container_wrap">
+                <section class="main_wrap">
+                    <!-- 왼쪽 메뉴 -->
+                    <div id="left_gnb">
+                        <ul>
+                            <li class="gnb_menu">
+                                <a href="">마이페이지</a>
+                                <ul>
+                                    <li class="gnb_sub_menu"><a href="my_info.html">나의정보</a></li>
+                                    <li class="gnb_sub_menu"><a href="order_info.html">주문정보</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /왼쪽 메뉴 -->
+
+                    <!-- 오른쪽 메뉴 -->
+                    <div class="mypage_box">
+                        <h2 class="tit">마이페이지</h2>
+                        
+                        <section class="mypage_section1">
+                            <table class="mypage_tb">
+                                <tbody>
+                                    <tr class="bo">
+                                        <td class="mypage_tb_td1">이메일</td>
+                                        <td colspan="2" class="mypage_tb_td2">123456@naver.com</td>
+                                        <td>
+                                            <input type="button" class="btn_black" value="정보수정">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mypage_tb_td1">휴대전화</td>
+                                        <td colspan="3" class="mypage_tb_td2">010-1234-5678</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mypage_tb_td1">회원등급</td>
+                                        <td colspan="3" class="mypage_tb_td2">7</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mypage_tb_td1">적립금</td>
+                                        <td colspan="3" class="mypage_tb_td2">1000P</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mypage_tb_td1">Q&A</td>
+                                        <td>></td>
+                                        <td class="mypage_tb_td1">1:1 상담문의</td>
+                                        <td>></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- <div class="lately_look">
+                                <h4 class="lately_tit">최근 본 상품</h4>
+                                <div class="lately_detail">
+                                    <div class="lately_detail1">
+                                        <button>
+                                            <img src="./img/sample1.jpg" alt="sample1">
+                                        </button>
+                                    </div>
+                                    <div class="lately_detail2">
+                                        <button>
+                                            <img src="./img/sample2.jpg" alt="sample2">
+                                        </button>
+                                    </div>
+                                    <div class="lately_detail3">
+                                        <button>
+                                            <img src="./img/sample3.jpg" alt="sample3">
+                                        </button>
+                                    </div>
+                                    <div class="lately_detail4">
+                                        <button>
+                                            <img src="./img/sample4.jpg" alt="sample4">
+                                        </button>
+                                    </div>
+                                    <div class="lately_detail5">
+                                        <button>
+                                            <img src="./img/sample5.jpg" alt="sample5">
+                                        </button>
+                                    </div>
+                                    <div class="lately_detail6">
+                                        <button>
+                                            <img src="./img/sample6.jpg" alt="sample6">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div> -->
+                        
+                            <!-- <div class="order_info">
+                                <h2>주문 정보</h2>
+                                <div class="square_box_top">
+                                    <ul class="">
+                                        <a href="">
+                                            <li class="square_box_bgi1">
+                                                <img src="./img/orderlist.png">
+                                                <h3 class="">입금/결제</h3>
+                                                n건
+                                            </li>
+                                        </a>
+                                        <a href="">
+                                            <li class="square_box_bgi2">
+                                                <img src="./img/delivery_wait.png">
+                                                <h3 class="">배송준비중</h3>
+                                                n건
+                                            </li>
+                                        </a>
+                                        <a href="">
+                                            <li class="square_box_bgi3">
+                                                <img src="./img/delivery_ing.png">
+                                                <h3 class="">배송중</h3>
+                                                n건
+                                            </li>
+                                        </a>
+                                        <a href="">
+                                            <li class="square_box_bgi4">
+                                                <img src="./img/delivery_fin.png">
+                                                <h3 class="">배송완료</h3>
+                                                n건
+                                            </li>
+                                        </a>
+                                    </ul>
+                                </div>
+                            </div> -->
+
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>             

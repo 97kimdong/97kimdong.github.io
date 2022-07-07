@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPage</title>
+
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="./css/left.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+
+
+        /* 오른쪽 정보창 */
+        .my_info {  width: 700px; }
+        .my_info_detail { height: 24px; width: 400px; text-align: center; border: 1px solid #bdbdbd; }
+        .my_info tbody tr th { font-weight: lighter; color: #222; }
+        #grade { width: 80px;}
+        #name { width: 200px; }
+        #zipcode { width: 200px; }
+        
+        .tb_btntd { padding-left: 180px; }
+        .btn_white { width: 100px; height: 50px; }
+        .btn_black { width: 100px; height: 50px; }
+        /* /오른쪽 정보창 */
+    </style>
+</head>
+
+
+<body>
+    <div class="wrap">
+
+        <header id="hd">
+            <div class="hd_wrap">
+
+            </div>
+        </header>
+
+        <div id="container">
+            <div class="container_wrap">
+                <div class="mypage_wrap">
+
+                    <section class="mypage_left">
+                        <h2  class="tit">
+                            <a href="mypage.html">마이페이지</a>
+                        </h2>
+                        <ul class="sub_tit">
+                            <li>
+                                <a href="my_info.html">나의 정보</a>
+                            </li>
+                            <li>
+                                <a href="order_info.html">주문 정보</a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="mypage_right">
+                        <div class="con_box">
+                        <h2>나의 정보</h2>
+                        <hr>
+                            <table class="my_info">
+                                <tbody>
+                                    <tr>
+                                        <th>회원 등급</th>
+                                        <td>
+                                            <input type="text" name="grade" id="grade" class="my_info_detail" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>이름</th>
+                                        <td>
+                                            <input type="text" name="name" id="name" class="my_info_detail" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>이메일</th>
+                                        <td>
+                                            <input type="text" name="email" id="email" class="my_info_detail" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>비밀번호</th>
+                                        <td>
+                                            <input type="text" name="pw" id="pw" class="my_info_detail" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>휴대전화</th>
+                                        <td>
+                                            <input type="tel" name="phonenum" id="phonenum" class="my_info_detail" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    <tr>
+                                        <th>우편번호</th>
+                                        <td>
+                                            <input type="text" name="zipcode" id="zipcode" class="my_info_detail" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>주소</th>
+                                        <td>
+                                            <input type="text" name="addr1" id="addr1" class="my_info_detail" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>상세주소</th>
+                                        <td>
+                                            <input type="text" name="addr2" id="addr2" class="my_info_detail" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>가입일</th>
+                                        <td>
+                                            <input type="date" name="regdate" id="regdate" class="my_info_detail" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="tb_btntd">
+                                            <button class="btn_black">
+                                                정보 수정
+                                            </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button class="btn_white">
+                                                회원 탈퇴
+                                            </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- <footer class="ft">
+            <p>123432</p>
+        </footer>  -->
+
+    </div>
+</body>
+</html>

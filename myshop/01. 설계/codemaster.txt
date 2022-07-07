@@ -1,0 +1,66 @@
+create table codemaster(
+seq int auto_increment primary key,			/* 식별번호 */
+code varchar(10) not null,					/* 구분코드 */
+value varchar(10) not null,					/* 값 */
+name varchar(50) not null);					/* 명칭 */
+
+
+insert into codemaster(code, value, name)
+values("cs","1","일반회원");
+insert into codemaster(code, value, name)
+values("cs","3","휴면계정");
+insert into codemaster(code, value, name)
+values("cs","9","관리자");
+
+insert into codemaster(code, value, name)
+values("cg","1","일반");
+insert into codemaster(code, value, name)
+values("cg","3","브론즈");
+insert into codemaster(code, value, name)
+values("cg","5","실버");
+insert into codemaster(code, value, name)
+values("cg","7","골드");
+insert into codemaster(code, value, name)
+values("cg","9","플레티넘");
+insert into codemaster(code, value, name)
+values("cg","11","디이야");
+
+insert into codemaster(code, value, name)
+values("ms","1","적립");
+insert into codemaster(code, value, name)
+values("ms","3","사용");
+
+insert into codemaster(code, value, name)
+values("mr","1","주문적립");
+insert into codemaster(code, value, name)
+values("mr","3","이벤트 적립");
+insert into codemaster(code, value, name)
+values("mr","5","사용");
+
+insert into codemaster(code, value, name)
+values("ps","1","노출");
+insert into codemaster(code, value, name)
+values("ps","3","비노출");
+
+insert into codemaster(code, value, name)
+values("pad","s","썸네일");
+insert into codemaster(code, value, name)
+values("pad","ds","제품상세 썸네일");
+insert into codemaster(code, value, name)
+values("pad","dm","제품상세 메인");
+
+insert into codemaster(code, value, name)
+values("omos","1","접수중");
+insert into codemaster(code, value, name)
+values("omos","3","배송중");
+insert into codemaster(code, value, name)
+values("omos","5","배송완료");
+
+insert into codemaster(code, value, name)
+values("omps","1","입금대기");
+insert into codemaster(code, value, name)
+values("omps","3","입금확인");
+insert into codemaster(code, value, name)
+
+select * from codemaster;
+commit;

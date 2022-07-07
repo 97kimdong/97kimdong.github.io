@@ -1,0 +1,88 @@
+   /* ----------------------------- */
+   @charset "UTF-8";
+
+   @font-face {
+    font-family: 'GimpoGothicBold00';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimpoGothicBold00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+    * { font-family: GimpoGothicBold00;margin:0; padding: 0;}
+   [class*='xi']{font-size: 25px;color: black;}
+   [class*='xi']:hover {color: red;}
+
+
+   /* 헤더 */
+
+   a {text-decoration: none; color: black;}
+   ul { list-style: none;}
+   .wrap{clear: both; width: 100%;}
+   #hd{clear: both; width: 100%; height: 100px; position: fixed; top: 0; left: 0; z-index: 999;
+       background-color: white;
+   }
+   .hd_wrap{width: 1720px; margin: 0 auto;}
+   #content{clear: both; width: 100%;}
+   #ft{clear: both; width: 100%; z-index: 999;}
+   .logo{display:block; width: 174px; float: left; margin-top: 35px;}
+   .logo img{display: block; width: 100%;}
+   #gnb{float: left;}
+   #tnb{float: right; padding-right: 50px; padding-top: 45px; padding-bottom: 45px; padding-left: 50px;}
+   #tnb a { font-size: 0.85em; padding-left: 10px; padding-right: 10px;}
+   #tnb a:hover { color: hotpink;
+   
+   }
+   #gnb > ul > li {float: left; padding-left: 50px; padding-right: 20px;
+   position: relative;  /* 부모의 기준으로 맞춰줌 */
+   left: 400px;
+   font-size: 21px;
+   }
+
+
+   #gnb > ul > li > span { display: block; line-height: 100px; cursor: pointer;}
+   #gnb ul li .sub { display: none; position: absolute; left: 40px; top: 100px;
+       height: 250px; width: 100%; z-index: 999; font-size: 18px;
+       
+       padding-right: 10px; padding-left: 10px;
+       background-color: white;  
+   }
+   
+   
+
+   #gnb ul li .sub li {line-height: 30px;}
+   #gnb ul li:hover .sub {display: block;
+   }
+   .w_board{
+       position: absolute;
+       display: none;
+       z-index: 998;
+       background-color: white;
+       left: 0px;
+       top: 100px;
+       width: 100%;
+       height: 250px;
+   }
+   #gnb ul li:hover span{color: red;
+                       text-decoration: underline red solid;
+                       text-underline-offset: 23px;
+                       transition: 0.25s;
+   }
+   
+   #gnb ul li ul li a:hover {color: red;
+               text-decoration: underline red solid;
+               text-underline-offset: 5px;
+               transition: 0.25s;
+           }
+
+           
+/* 푸터 */
+#ft { clear:both; width: 100%; padding-top: 20px; border-top:3px solid #f1f1f1; 
+   height: 100px;}
+   .ft_wrap { clear:both; width: 1280px; margin: 0 auto; }
+   .fnb { float:left; }
+   .fnb a { display:block; float:left; margin:14px; 
+       margin-left: 0; margin-right: 28px; font-size:12px; }
+   .fnb a:after { content:"|"; padding-left: 28px; }
+   .fnb a:last-child::after { content:""; }
+   .snb { float:right; }
+   .snb ul li { float:left; margin-left: 28px; }
+   .copyright { clear:both; padding-bottom: 28px; font-size:12px; }

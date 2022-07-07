@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css"> 
+<title>정육 · 계란</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+#container{
+    width: 100%;
+    clear: both;
+}
+
+.container_wrap{
+    clear: both;
+}
+.visual {
+    width: 100%;
+    display: block;
+    height: 430px;
+    
+}
+
+.content_warp{
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.tit_box {
+    padding-top: 150px;
+    font-weight: 300;
+    color: beige;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.tit_box>h3 {
+    font-weight: 500;
+    padding-bottom: 25px;
+    font-size: 60px;
+}
+
+.page_tit{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.sub_tit{
+    margin-right: 30px;
+    font-size: 15px;
+    letter-spacing: -2px;
+    margin-bottom: 50px;
+}
+
+.sub_tit ul{
+    list-style: none;
+    text-align: center;
+}
+.sub_tit li{
+    margin-left: 25px;
+    display:inline-block; 
+    text-transform:uppercase;
+}
+
+.sub_tit li:after {
+    display:block;
+    content: '';
+    border-bottom: solid 2px #000;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+}
+.sub_tit li:hover:after {
+    transform: scaleX(1); 
+}
+.goods_list{
+    width: 1400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: solid 1px lightgrey;
+    margin-bottom: 100px;
+}
+span.price{
+    display: block;
+    line-height: 45px;
+    font-size: 17px;
+}
+span.desc{
+    font-size: 13px;
+    color: lightgray;
+}
+.goods>a>img{
+    width: 313px;
+    height: 400px;
+}
+.item{   
+    margin: 50px 0 50px 0;
+    float: left;
+}
+.info{
+    font-size: 15px;
+    line-height: 45px;
+    font-weight: 600;
+}
+.list_line{
+    clear: both;
+    height: 55px;
+    border-top: solid 2px #000;
+    border-bottom: solid 1px lightgray;
+}
+.pick_list>li{
+    float: right;
+    display: flex;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+.pick_list>li>a{
+    font-weight: 400;
+    font-size: 15px;
+    margin-right: 10px;
+    letter-spacing: -2px;
+    color: gray;
+}
+.list_line .pick_list .sub_navi{
+    float: left;    
+}
+.pick_list_num{
+
+}
+.pick_list_num::after{
+    margin-left:15px;
+    content: "｜";
+}
+
+.select_num{
+    margin-left: 15px;
+    color: gray;
+    border: none;
+    border-bottom: solid 1px lightgray;
+}
+.select_num:focus{
+    outline: none;
+}
+
+
+
+/* ------------- 페이지 위치 ------------- */
+.location_wrap{position:relative; width:100%; /*background:#f9f9f9;*/ }
+.location_wrap .location_cont{width:1200px; margin:18px auto 0; }
+.location_wrap .location_cont:after{display:block; clear:both; content:"";}
+.location_cont em{font-size:0;}
+.location_cont em img{position: relative;margin: 0; top: -4px; }
+.location_cont img{display:inline-block; vertical-align:middle; margin:0 8px 2px;}
+.location_cont a img{margin-left:0;}
+.location_cont .local_home{color:#777777;}
+.location_cont .local_home:hover{text-decoration:underline;}
+/* 페이지 셀렉트 레이어 */
+.sub_content .location_wrap{margin:0; border-bottom:none 0;}
+.location_cont em + .location_select{margin-left:5px;}
+.location_select{display:inline-block; position:relative; min-width:130px; border:none; border-bottom:1px solid #ddd; background:#ffffff; z-index:50; padding:0;}
+.location_select .location_tit{background:url("./img/select_arrow.png") no-repeat right 3px center;}
+.location_select .location_tit.actvie{background:url("./img/select_arrow.png") no-repeat right 3px center;}
+.location_select .location_tit span{display:inline-block;}
+.location_select .location_tit a{display:block; padding:6px 32px 6px 2px; font-size:13px; color:#888;}
+.location_select ul{display:block; position:absolute; top:30px; left:0px; width:100%; padding:6px 0 6px 0; font-size:0;  background:#ffffff; border:1px solid #ddd;}
+.location_select ul li{}
+.location_select ul li a{display:block;font-size:13px; color:#888; font-family:'Poppins', "Noto Sans KR", sans-serif; padding:4px 8px;}
+.location_select ul li a span{display:inline-block;}
+.location_select ul li a:hover{color:#ffffff; text-decoration:none; background:#222222;}
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+	<div class="wrap">
+        <header id="hd">
+            <div class="hd_wrap">
+                <!-- 헤더 -->
+                <ul class="gnb">
+                    <li class="main logo">
+                        <img src="./img/common/logo.png" alt="로고">
+                    </li>
+                    <li class="main">
+                        정육·계란
+                        <ul>
+                            <li class="sub"><a href="">소고기</a></li>
+                            <li class="sub"><a href="">돼지고기</a></li>
+                            <li class="sub"><a href="">계란류</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        국·반찬·메인요리
+                        <ul>
+                            <li class="sub"><a href="">국·탕·찌개</a></li>
+                            <li class="sub"><a href="">밀키트·메인요리</a></li>
+                            <li class="sub"><a href="">밑반찬</a></li>
+                            <li class="sub"><a href="">김치·젓갈·장류</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        샐러드·간편식
+                        <ul>
+                            <li class="sub"><a href="">샐러드·닭가슴살</a></li>
+                            <li class="sub"><a href="">도시락·밥류</a></li>
+                            <li class="sub"><a href="">떡볶이·튀김·순대</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        면·양념·오일
+                        <ul>
+                            <li class="sub"><a href="">파스타·면류</a></li>
+                            <li class="sub"><a href="">식초·소스·드레싱</a></li>
+                            <li class="sub"><a href="">식용유·참기름·오일</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        베이커리·치즈·델리
+                        <ul>
+                            <li class="sub"><a href="">식빵·빵류</a></li>
+                            <li class="sub"><a href="">잼·버터·스프레드</a></li>
+                            <li class="sub"><a href="">치즈</a></li>
+                            <li class="sub"><a href="">델리</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        커뮤니티
+                        <ul>
+                            <li class="sub"><a href="">공지사항</a></li>
+                            <li class="sub"><a href="">문의게시판</a></li>
+                            <li class="sub"><a href="">동협게시판</a></li>
+                            <li class="sub"><a href="">재영게시판</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- 오른쪽 정렬이라 순서 반대-->
+
+                <div class="user_bar">
+                    <ul class="user_menu">
+                        <li class="main"><a href="">Login</a></li>
+                        <li class="main"><a href="">Join</a></li>
+                        <li class="main">(Mypage)
+                            <ul>
+                                <li class="sub"><a href="">나의정보</a></li>
+                                <li class="sub"><a href="">주문정보</a></li>
+                            </ul>
+                        </li>
+                        <li class="main">(Logout)</li>
+                    </ul>
+                </div>
+                <script>
+                $('.main').click(function () {
+                                //$(this).find('ul').css('display','block');
+                                $('.main').find('ul').slideUp('fast');
+                                if ($(this).find('ul').css('display') == 'none') {
+                                    $(this).find('ul').slideDown('fast');
+                                }
+                
+                            });
+                </script>
+            </div>
+        </header>
+        <div id="container">
+            <div class="container_wrap">
+                <section class="page1">
+                    <div class="visual" style="background:url(./img/subtop_kitchenacc.jpg);" >
+                        <div class="tit_box">
+                            <h3>POTTERY HOUSE</h3>
+                            <p>EVERYDAY BESTBUY</p>
+                        </div>
+                    </div>
+                    <div class="location_wrap">
+                        <div class="location_cont">
+                            <em><a href="#" class="local_home"><img src="./img/home_icon.png" alt="홈"></a></em>
+                            <span><img src="./img/arrow_icon.png" alt=""></span>
+                            <div class="location_select">
+                                <div class="location_tit"><a href="#"><span>정육·계란</span></a></div>
+                                <ul style="display: none;">
+                                    <li><a href=""><span>국·반찬·메인요리</span></a></li>
+                                    <li><a href=""><span>샐러드·간편식</span></a></li>
+                                    <li><a href=""><span>면·양념·오일</span></a></li>
+                                    <li><a href=""><span>베이커리·치즈·델리</span></a></li>
+                                    <li><a href=""><span>커뮤니티</span></a></li>
+                                </ul>
+                            </div>
+                            <!-- 홈 > 돼지와 달걀들 > 소고기
+                            <span><img src="./img/arrow_icon.png" alt=""></span>
+                            <div class="location_select">
+                                <div class="location_tit"><a href="#"><span>소고기</span></a></div>
+                                <ul style="display: none;">
+                                    <li><a href="?cateCd=001"><span>돼지고기</span></a></li>
+                                    <li><a href="?cateCd=002"><span>계란류</span></a></li>
+                                    <li><a href="?cateCd=005"><span>양념육·돈까스</span></a></li>
+                                </ul>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <div class="content_warp">
+                        <div class="page_tit">
+                            <h2>정육 · 계란</h2>
+                        </div>
+                        <div class="sub_tit">
+                            <ul>
+                                <li><a href="">소고기</a></li>
+                                <li><a href="">돼지고기</a></li>
+                                <li><a href="">계란류</a></li>
+                                <li><a href="">양념육 · 돈까스</a></li>
+                            </ul>
+                        </div>
+                        <div class="list_line">
+                            <ul class="pick_list">   
+                                <li class="sub_navi">
+                                    <span class="pick_list_num" style="color: gray;">Total. <strong style="color: black;">8</strong></span>
+                                    <select name="" id="" class="select_num">
+                                        <option value="" selected>20개씩보기</option>
+                                        <option value="">10개씩보기</option>
+                                        <option value="">30개씩보기</option>
+                                        <option value="">40개씩보기</option>
+                                        <option value="">50개씩보기</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <a href="">등록일순</a>
+                                </li>
+                                <li>
+                                    <a href="">상품평순</a>
+                                </li>
+                                <li>
+                                    <a href="">높은가격순</a>
+                                </li>
+                                <li>
+                                    <a href="">낮은가격순</a>
+                                </li>
+                                <li>
+                                    <a href="">판매인기순</a>
+                                </li>
+                                <li>
+                                    <a href="" style="color: #000;">추천순</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="goods_list">
+                            <div class="item">
+                                <div class="goods">
+                                    <a href=""> 
+                                        <img src="./img/dhfl1.jpeg" alt="100g 당 판매가 : 1,875원">
+                                    </a>
+                                </div>
+                                <a class="info">
+                                    <a href=""><span class="name"> [우리땅오리] 무항생제 오리 로스 400g 냉동 </span></a>
+                                    <a href=""><span class="price">7,500원</span></a>
+                                    <a href=""><span class="desc">100g 당 판매가 : 1,875원</span></a>
+                                    <a href=""><span class="tag"></span></a> 
+                                </a>
+                            </div>
+                            <div class="item">
+                                <div class="goods">
+                                    <a href=""> 
+                                        <img src="./img/1633588725320l0.jpg" alt="100g 당 판매가 : 1,875원">
+                                    </a>
+                                </div>
+                                <a class="info">
+                                    <a href=""><span class="name"> [하림] 냉장 닭가슴살 4종 </span></a>
+                                    <a href=""><span class="price">1,700원</span></a>
+                                    <a href=""><span class="desc">간편하게 꺼내먹는 냉장 닭가슴살!</span></a>
+                                    <a href=""><span class="tag"></span></a> 
+                                </a>
+                            </div>
+                            <div class="item">
+                                <div class="goods">
+                                    <a href=""> 
+                                        <img src="./img/1637147626889l0.jpg" alt="100g 당 판매가 : 1,875원">
+                                    </a>
+                                </div>
+                                <a class="info">
+                                    <a href=""><span class="name"> [KF365] 1+등급 무항생제 특란20구 </span></a>
+                                    <a href=""><span class="price">7,150원</span></a>
+                                    <a href=""><span class="desc">1구 당 판매가 : 357.5원</span></a>
+                                    <a href=""><span class="tag"></span></a> 
+                                </a>
+                            </div>
+
+                            <div class="item">
+                                <div class="goods">
+                                    <a href=""> 
+                                        <img src="./img/1646377916155l0.jpg" alt="100g 당 판매가 : 1,875원">
+                                    </a>
+                                </div>
+                                <a class="info">
+                                    <a href=""><span class="name"> [KF365] 1+등급 무항생제 대란20구 </span></a>
+                                    <a href=""><span class="price">6,900원</span></a>
+                                    <a href=""><span class="desc">1구 당 판매가 : 345원</span></a>
+                                    <a href=""><span class="tag"></span></a> 
+                                </a>
+                            </div>
+                            <div class="item">
+                                <div class="goods">
+                                    <a href=""> 
+                                        <img src="./img/1648206863338l0.jpeg" alt="100g 당 판매가 : 1,875원">
+                                    </a>
+                                </div>
+                                <a class="info">
+                                    <a href=""><span class="name"> [다향오리] 혼제오리 150g </span></a>
+                                    <a href=""><span class="price">2,980원</span></a>
+                                    <a href=""><span class="desc">안심하고 즐기는 쫄깃한 식감 </span></a>
+                                    <a href=""><span class="tag"></span></a> 
+                                </a>
+                            </div>
+                            <div class="item">
+                                <div class="goods">
+                                    <a href=""> 
+                                        <img src="./img/1656427630593l0.jpg" alt="100g 당 판매가 : 1,875원">
+                                    </a>
+                                </div>
+                                <a class="info">
+                                    <a href=""><span class="name"> [하이포크] 한돈 꽃등심 300g (냉장) </span></a>
+                                    <a href=""><span class="price">5,600원</span></a>
+                                    <a href=""><span class="desc">100g 당 판매가 : 1,967원</span></a>
+                                    <a href=""><span class="tag"></span></a> 
+                                </a>
+                            </div>
+                            <div class="item">
+                                <div class="goods">
+                                    <a href=""> 
+                                        <img src="./img/1656427724679l0.jpg" alt="100g 당 판매가 : 1,875원">
+                                    </a>
+                                </div>
+                                <a class="info">
+                                    <a href=""><span class="name"> [하이포크] 한돈 꽃살 구이 300g (냉장) </span></a>
+                                    <a href=""><span class="price">6,100원</span></a>
+                                    <a href=""><span class="desc">100g 당 판매가 : 2,033원</span></a>
+                                    <a href=""><span class="tag"></span></a> 
+                                </a>
+                            </div>
+                            <div class="item">
+                                <div class="goods">
+                                    <a href=""> 
+                                        <img src="./img/1656427898500l0.jpg" alt="100g 당 판매가 : 1,875원">
+                                    </a>
+                                </div>
+                                <a class="info">
+                                    <a href=""><span class="name"> [하이포크] 한돈 꽃목심 300g (냉장) </span></a>
+                                    <a href=""><span class="price">10,900원</span></a>
+                                    <a href=""><span class="desc">100g 당 판매가 : 3,633원</span></a>
+                                    <a href=""><span class="tag"></span></a> 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script>
+    //         $('.location_select').on({
+    //     'mouseenter':function() {
+    //         if ($(this).find('ul').css('display') == 'none') {
+    //             $(this).find('.location_tit').addClass('active');
+    //             $(this).find('ul').slideDown('fast');
+    //         }
+    //     },
+    //     'mouseleave':function() {
+    //         $(this).find('ul').slideUp('fast');
+    //         $(this).find('.location_tit').removeClass('active');
+    //     }
+    // });
+
+        $('.location_select').click(function(){
+            if ($(this).find('ul').css('display') == 'none') {
+                $(this).find('.location_tit').addClass('active');
+                $(this).find('ul').slideDown('fast');
+            }else{
+            $(this).find('ul').slideUp('fast');
+            $(this).find('.location_tit').removeClass('active');
+            }
+        });
+
+        </script>
+        <footer id="ft">
+            <div class="ft_wrap">
+                    <!-- 푸터 -->
+                <div class="ft_info">
+                    <div class="ft_info_box">
+                        <h1>COMPANY INFO</h1>
+                        <div class="ft_info_list ft_info_list_1">
+                            <dl>
+                                <dd>동협쇼핑몰</dd>
+                            </dl>
+                            <dl>
+                                <dt>대표 : </dt>
+                                <dd>김동협</dd>
+                            </dl>
+                            <dl>
+                                <dt>사업자등록번호 : </dt>
+                                <dd>111-11-11111</dd>
+                            </dl>
+                            <dl>
+                                <dt>통신판매업신고 : </dt>
+                                <dd>제2022-고양-5877448호</dd>
+                            </dl>
+                        </div>
+                        <div class="ft_info_list">
+                            <dl>
+                                <dt>개인정보관리자 : </dt>
+                                <dd>동협쇼핑몰</dd>
+                            </dl>
+                            <dl>
+                                <dd>경기도 고양시 한강뷰 어느 아파트 A동 17??호</dd>
+                            </dl>
+                            <dl>
+                                <dt>사업자등록번호 : </dt>
+                                <dd>139-81-22863</dd>
+                            </dl>
+                            <dl>
+                                <dt>전화 : </dt>
+                                <dd>032-817-2272</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="ft_info_box2">
+                        <h1>CS CENTER</h1>
+                        <div class="ft_info_list3">
+                        <h2>031-958-1611</h2>
+                        <h3>평일 10:00 ~ 18:20 (점심 12:50 ~ 13:30)</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft_info2">
+                    <div class="ft_copylight">
+                        <p>© 김동협 쇼핑몰. All Rights Reserved. <span style="color:#777">Site by 더조은동협모임</span></p>
+                    </div>
+                    <div class="ft_a_box">
+                        <a href="">회사소개</a>
+                        <a href="">이용약관</a>
+                        <a href="">개인정보처리방침</a>
+                        <a href="">이용안내</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

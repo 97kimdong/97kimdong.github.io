@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <title>정육 · 계란</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        th,
+        td {
+            vertical-align: middle;
+        }
+
+        #container {
+            width: 100%;
+            clear: both;
+        }
+
+        .container_wrap {
+            clear: both;
+        }
+
+        section {
+            width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product_warp {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+        .product_img>img {
+            display: block;
+            width: 470px;
+            height: 600px;
+        }
+
+        .detail_table {
+            width: 600px;
+            line-height: 3em;
+            font-size: 16px;
+            text-align: left;
+            margin-left: 100px;
+        }
+
+        .product_tr {
+            border-bottom: solid 1px lightgray;
+        }
+
+        .product_tr>th {
+            width: 130px;
+        }
+
+        .detail_tit,
+        .detail_price {
+            font-size: 20px;
+        }
+
+        .detail_first>th,
+        .detail_text>th {
+            width: 150px;
+        }
+
+        .down_btn {
+            padding: 7px;
+            border: 1px solid #777;
+            background-image: url("./img/down_btn.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 25px;
+            height: 25px;
+        }
+
+        .up_btn {
+            padding: 7px;
+            border: 1px solid #777;
+            background-image: url("./img/up_btn.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 25px;
+            height: 25px;
+        }
+        .like_btn{
+            background-image: url("./img/like_btn.svg");
+            width: 45px;
+            height: 45px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: none;
+            border: 1px solid gray;
+            margin-right: 10px;
+        }
+        .alarm_btn{
+            background-image: url("./img/alarm_btn.svg");
+            width: 45px;
+            height: 45px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 1px solid gray; 
+            margin-right: 10px;
+        }
+        .pickup_btn{
+            background: #4e4f58;
+            border: 1px solid #4e4f58;
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            width: 125px;
+            line-height: 10px;
+        }
+        .pickup_btn:hover{
+            background: #222;
+            border: 1px solid #222;
+            transition-duration: 0.5s;
+        }
+        .product_view_warp{
+            width: 1200px;  
+            margin-left: 112px;
+        }
+        .product_tab>ul{
+            display: flex;
+            justify-content: center;
+            margin-right: 3px;
+        }
+        .product_tab>ul>li{
+            border: solid 1px gray;
+            line-height: 65px;
+            width: 300px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .text_last{
+            margin-top: 50px;
+        }
+        .text_last>h3{
+            font-size: 30px;
+            color: gray;
+            font-weight: 700;
+            line-height: 1.5em;
+            border-bottom: 1px solid gray;
+            text-align: center;
+        }
+        .text_last>p{
+            margin-top: 30px;
+            font-size: 20px;
+            line-height: 1.3em;
+            color: gray;
+        }
+        .view_detail>h3{
+            font-size: 30px;
+            color: gray;
+            font-weight: 700;
+            line-height: 1.5em;
+            text-align: center;
+            border-bottom: 1px solid gray;
+            margin-bottom: 30px;
+        }
+        .view_review>h3{
+            font-size: 30px;
+            color: gray;
+            font-weight: 700;
+            line-height: 1.5em;
+            text-align: center;
+            border-bottom: 1px solid gray;
+            margin-bottom: 100px;
+        }
+        .words .sub_tit{
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.5em;
+        }
+        .words{
+            font-size: 20px;
+            line-height: 1.3em;
+            margin-bottom: 100px;
+        }
+        .words>b{
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 1.3em;
+            margin-bottom: 100px;
+        }
+        .view_inquiry>h3{
+            font-size: 30px;
+            color: gray;
+            font-weight: 700;
+            line-height: 1.5em;
+            text-align: center;
+            border-bottom: 1px solid gray;
+            margin-bottom: 100px;
+        }
+        .detail_law{
+        width: 1200px;
+        line-height: 20px;
+        font-size: 11px;
+        }
+        .detail_law_th{
+            background-color: lightgray;
+            text-align: left;
+            width: 200px;
+            padding-left: 1em;
+        }
+        .detail_law_td{
+            width: 480px;
+            height: 80px;
+            line-height: 1.3em;
+            padding-left: 2em;
+        }
+        .view_whykurly_tit{
+            text-align: center;
+            margin-bottom: 100px;
+        }
+        .view_whykurly_tit h3{
+            font-size: 30px;
+            color: purple;
+            font-weight: 600;
+            margin-bottom: 70px;
+        }
+        .view_whykurly_tit h4{
+            color: purple;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .view_whykurly_img{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            line-height: 1.1em;
+        }
+        .view_whykurly_tit p{
+            font-weight: 100;
+            line-height: 1.5em;
+            
+        }
+        .view_whykurly_tit p span{
+            font-weight: 100;
+            font-size: 12px;
+            color: gray;
+        }
+        .view_info{
+            margin-top: 100px;
+            border-top: 1px solid gray;
+            padding-top: 100px;
+        }
+        .view_info h3{
+            font-size: 30px;
+            color: gray;
+            font-weight: 600;
+            margin-bottom: 45px;
+        }
+        .view_info_sub{
+            font-size: 20px;
+            color: gray;
+            font-weight: 550;
+            margin-bottom: 45px;
+        }
+        .view_info_sub span{
+            font-weight: 200;
+        }
+        .view_info_detail{
+            display: flex;
+            justify-content: center;
+            font-size: 22px;
+        }
+        .view_info_detail h4{
+            border-left: 3px solid purple;
+            padding-left: 10px;
+            color: purple;
+            font-weight: 600;
+            line-height: 20px;
+            
+        }
+        .view_info_detail p{
+            padding-top: 9px;
+            font-size: 18px;
+            line-height: 25px;
+        }
+        .view_info_detail p span{
+            color: gray;
+        }
+        .review_board_tit{
+            border-bottom: 2px solid purple;
+            padding-bottom: 15px;
+        }
+        .review_board_tit h3{
+            font-weight: 600;
+        }
+        .review_board_tit p{
+            font-weight: 100;
+            font-size: 14px;
+            line-height: 1.2em;
+        }
+        .review_board{
+            font-size: 15px;
+            line-height: 2em;
+        }
+        .review_board_detail{
+            width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 600;
+        }
+        .review_board_detail tbody{
+            font-weight: 100;
+        }
+        .review_board_detail td{
+            vertical-align: middle;
+        }
+        .review_board_detail th,.review_board_detail td{
+            border-bottom: 1px solid gray;
+            line-height: 4em;
+        }
+        .btn_review{
+            width: 120px;
+            height: 30px;
+            border: solid 1px purple;
+            background-color: blueviolet;
+            color: #fff;
+            font-weight: 500;
+        }
+        .page_move{
+            display: flex;
+            justify-content: center;
+        }
+        .page_move a{
+            text-align: center;
+            border: 1px solid lightgray;
+            width: 30px;
+            height: 30px;
+            margin-bottom: 100px;
+        }
+        .first_btn{
+            background-image: url("./img/icon-pagination-first.png");
+            background-repeat: no-repeat;
+            background-position: 50% 50%
+            
+        }
+        .prev_btn{
+            background-image: url("./img/icon-pagination-prev.png");
+            background-repeat: no-repeat;
+            background-position: 50% 50%
+        }
+        .next_btn{
+            background-image: url("./img/icon-pagination-next.png");
+            background-repeat: no-repeat;
+            background-position: 50% 50%
+        }
+        .last_btn{
+            background-image: url("./img/icon-pagination-last.png");
+            background-repeat: no-repeat;
+            background-position: 50% 50%
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <div class="hd_wrap">
+                <!-- 헤더 -->
+                <ul class="">
+                    <li class="logo">
+                        <a href="index.html"><img src="./img/common/logo.png" alt="로고"></a>
+                    </li>
+                </ul>
+                <ul class="gnb">
+                    <div class="sub_box"></div>
+                    <li class="main">
+                        정육·계란
+                        <ul>
+                            <li class="sub"><a href="">소고기</a></li>
+                            <li class="sub"><a href="">돼지고기</a></li>
+                            <li class="sub"><a href="">계란류</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        국·반찬·메인요리
+                        <ul>
+                            <li class="sub"><a href="">국·탕·찌개</a></li>
+                            <li class="sub"><a href="">밀키트·메인요리</a></li>
+                            <li class="sub"><a href="">밑반찬</a></li>
+                            <li class="sub"><a href="">김치·젓갈·장류</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        샐러드·간편식
+                        <ul>
+                            <li class="sub"><a href="">샐러드·닭가슴살</a></li>
+                            <li class="sub"><a href="">도시락·밥류</a></li>
+                            <li class="sub"><a href="">떡볶이·튀김·순대</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        면·양념·오일
+                        <ul>
+                            <li class="sub"><a href="">파스타·면류</a></li>
+                            <li class="sub"><a href="">식초·소스·드레싱</a></li>
+                            <li class="sub"><a href="">식용유·참기름·오일</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        빵·치즈·델리
+                        <ul>
+                            <li class="sub"><a href="">식빵·빵류</a></li>
+                            <li class="sub"><a href="">잼·버터·스프레드</a></li>
+                            <li class="sub"><a href="">치즈</a></li>
+                            <li class="sub"><a href="">델리</a></li>
+                        </ul>
+                    </li>
+                    <li class="main">
+                        커뮤니티
+                        <ul>
+                            <li class="sub"><a href="">공지사항</a></li>
+                            <li class="sub"><a href="">문의게시판</a></li>
+                            <li class="sub"><a href="">동협게시판</a></li>
+                            <li class="sub"><a href="">재영게시판</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- 오른쪽 정렬이라 순서 반대-->
+
+                <div class="sub_box2"></div>
+                <div class="user_bar">
+                    <ul class="user_menu">
+                        <li class="main"><a href="">Login</a></li>
+                        <li class="main"><a href="">Join</a></li>
+                        <li class="main2">(Mypage)
+                            <ul>
+                                <li class="sub"><a href="">나의정보</a></li>
+                                <li class="sub"><a href="">주문정보</a></li>
+                            </ul>
+                        </li>
+                        <li class="main">(Logout)</li>
+                    </ul>
+                </div>
+                <!-- 헤더끝 -->
+
+                <script>
+
+
+
+                    //헤더 메뉴
+
+                    $('.main').click(function () {
+                        //$(this).find('ul').css('display','block');
+                        $('.main').find('ul').slideUp('fast');
+                        $('.main2').find('ul').slideUp('fast');
+                        $('.sub_box').slideUp('fast');
+                        $('.sub_box2').slideUp('fast');
+                        if ($(this).find('ul').css('display') == 'none') {
+                            $('.sub_box').slideDown('fast');
+                            $('.main').children('ul').slideDown('fast');
+                            $(this).find('ul').slideDown('fast');
+
+                        }
+                    });
+
+                    $('.main2').click(function () {
+                        //$(this).find('ul').css('display','block');
+                        $('.main2').find('ul').slideUp('fast');
+                        $('.main').find('ul').slideUp('fast');
+                        $('.sub_box').slideUp('fast');
+                        $('.sub_box2').slideUp('fast');
+                        if ($(this).find('ul').css('display') == 'none') {
+                            $('.sub_box2').slideDown('fast');
+                            $('.main2').children('ul').slideDown('fast');
+                            $(this).find('ul').slideDown('fast');
+
+                        }
+                    });
+
+                </script>
+            </div>
+        </header>
+
+        <div id="container">
+            <div class="container_wrap">
+                <section class="page1" id="1">
+                    <div class="product_warp">
+                        <div class="product_img">
+                            <img src="./img/dhfl1.jpeg" alt="제품이미지">
+                        </div>
+                        <div class="product_detail">
+                            <table class="detail_table">
+                                <tbody>
+                                    <tr>
+                                        <th colspan="2" style="font-size: 25px; font-weight: 500;">[우리땅오리] 무항생제 오리 로스400g (냉동)</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="detail_price" colspan="2" style="font-size: 25px; font-weight: 600;">
+                                            7,500<span style="font-size: 13px;">원</span></th>
+                                    </tr>
+                                    <tr style="border-top: solid 1px lightgray;">
+                                        <th class="detail_first">판매단위</th>
+                                        <td class="detail_first_sub">1팩</td>
+                                    </tr>
+                                    <tr class="product_tr">
+                                        <th class="detail_text">중량/용량</th>
+                                        <td class="detail_text_sub">400g</td>
+                                    </tr>
+                                    <tr class="product_tr">
+                                        <th class="detail_text">재고</th>
+                                        <td class="detail_text_sub">1004</td>
+                                    </tr>
+                                    <tr class="product_tr">
+                                        <th class="detail_text">원산지</th>
+                                        <td class="detail_text_sub">대한민국</td>
+                                    </tr>
+                                    <tr class="product_tr">
+                                        <th class="detail_text">유통기한</th>
+                                        <td class="detail_text_sub">최대 4일 이내로 보내드립니다.</td>
+                                    </tr>
+                                    <tr class="product_tr">
+                                        <th class="detail_text">알레르기정보</th>
+                                        <td class="detail_text_sub" style="line-height: 18px; padding: 10px 0;">-본 제품은
+                                            알류,우유,메밀,대두,밀,고등어,게,새우,돼지고기,복숭아,<br>토마토,호두,쇠고기,닭고기,오징어,조개류(굴,전복,홍합
+                                            포함),아황산류,잣을<br> 사용한 제조시절에서 같이 제조하고 있습니다.</td>
+                                    </tr>
+                                    <tr class="product_tr">
+                                        <th class="detail_text">안내사항</th>
+                                        <td class="detail_text_sub">성필이가 직접 기른 만큼 맛은 보장할 수 없습니다.</td>
+                                    </tr>
+                                    <tr class="product_tr">
+                                        <th class="detail_text">구매수량</th>
+                                        <td class="detail_text_sub">
+                                            <div class="test">
+                                                <button class="down_btn"></button>
+                                                <input class="qty" type="text" value="1"
+                                                    style="text-align: center; height: 25px; width: 25px; border: none;">
+                                                <button class="up_btn"></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="detail_text_last">총 상품금액:</th>
+                                        <td class="detail_text_sub_last" style="font-size: 25px; font-weight: 600;">
+                                            <span class="sum">7500</span><span style="font-size: 13px;">원</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="text-align: center; display: flex;">
+                                            <button class="like_btn"></button>
+                                            <button class="alarm_btn"></button>
+                                            <button class="pickup_btn">장바구니담기</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="product_view_warp">
+                        <div class="product_tab" style="margin-top: 140px;">
+                            <ul>
+                                <li style="border-right: none;"><a href=""></a>상품설명</li>
+                                <li style="border-right: none;"><a href=""></a>상세정보</li>
+                                <li style="border-right: none;"><a href=""></a>후기</li>
+                                <li><a href=""></a>문의</li>
+                            </ul>
+                        </div>
+                        <div class="product_view">
+                            <div class="view_item" style="margin-top: 100px;">
+                                <figure>
+                                    <center><img src="./img/dhfl2.jpg" alt="오리고기"></center>
+                                </figure>
+                                <div class="text_last">
+                                    <h3>
+                                    <small>안심하고 즐기는 오리 고기</small>
+                                    <br>[우리땅오리]<br>
+                                    무항생제 오리 로스
+                                    </h3>
+                                    <p class="words">특유의 쫄깃한 식감과 고소한 맛이 좋아, 오리고기를 즐겨 찾는 분들이 많을 텐데요. 무항생제 오리 고기로 만들어 더욱 건강하게 즐길 수 있는 우리땅오리 오리 로스를 가지고 왔어요. 건강한 국내산 오리를 깔끔하게 손질한 뒤, 도톰한 두께로 썰어 냉동으로 포장한 상품인데요. 따로 해동할 필요 없이, 잘 달궈진 프라이팬에 올려 주면 금세 노릇하게 구워진답니다. 머스타드 또는 소금을 준비해 톡톡 찍어주면 더욱 맛있게 즐길 수 있을 거예요.</p>
+                                </div>
+                            </div>
+                            <div class="view_detail" style="margin-top: 100px;">
+                                <h3><span>Kurly's Check Point</span></h3>
+                                <figure style="margin-left: 90px;">
+                                    <center><img src="./img/dhfl3.webp" alt="오리상세"></center>
+                                </figure>
+                            </div>
+                            <div class="view_review"  style="margin-top: 100px;">
+                                <h3><span>Kurly's Pick</span></h3>
+                                <p class="words">
+                                    <strong class="sub_tit">
+                                        <span class="option_tit">무항생제 오리 로스</span>
+                                    </strong>
+                                    <br><b>・중량 </b>: 1봉(400g)<br>
+                                    <b>・특징 </b> : 국내산 무항생제 오리고기를 도톰하게 썰어, 구이용으로 알맞게 가공한 상품이에요.<br>
+                                    <b>・보관법 </b> : -18℃ 이하에서 냉동 보관하세요. 이미 냉동된 바 있으니 해동 후에 재냉동하지 말아주세요.<br>
+                                    <b>・유의사항 </b> : 간혹 잔뼈가 남아 있을 수 있으니 섭취 시에 유의해 주세요. </p>
+                            </div>
+                            <div class="view_inquiry"  style="margin-top: 100px;">
+                                <h3><span>About Brand</span></h3>
+                                <figure style="margin-bottom: 30px;">
+                                    <center><img src="./img/dhfl4.webp" alt=""></center>
+                                </figure>
+                                <p class="words" style="margin-bottom: 100px;">
+                                    우리땅오리는 30년 노하우로 건강한 오리고기를 전문적으로 공급해온 다향오리의 프리미엄 브랜드입니다. 1981년 설립된 이래 전라도에서 오리알 부화부터 사육, 도축, 가공, 유통, 판매까지 전 과정을 One Stop System으로 철저히 관리해오고 있습니다. 공기 정화 시스템을 갖춘 첨단 설비와 무균설비를 갖춘 HACCP 인증 시설에서 청결하게 제조하며, 더 좋은 품질을 위해 높은 수준의 연구 인력까지 갖추고 있습니다. 2015년 다향식품연구소를 설립, 소비자의 니즈에 부합할 수 있는 상품을 끊임없이 연구하며 우리 식탁에 오르는 고품질의 오리고기를 책임지고 있습니다.
+                                    </p>
+                                <figure>
+                                    <center><img src="./img/dhfl5.webp" alt=""></center>
+                                </figure>
+                                <table class="detail_law">
+                                    <tr>
+                                        <th class="detail_law_th">포장단위별 용량(중량),수량,크기</th>
+                                        <td class="detail_law_td">상품설명 및 상품이미지 참조</td>
+                                        <th class="detail_law_th">관련법상 표시사항</th>
+                                        <td class="detail_law_td">농산물- 농수산물품질관리법상 유전자변형농산물 표시, 지리적 표시사항
+                                            축산물- 축산법에 따른 등급 표시, 쇠고기의 경우 이력관리에 따른 표시유무
+                                            수산물- 농수산물품질관리법상 유전자변형수산물 표시, 지리적 표시
+                                            수입식품에 해당하는 경우 "식품위생법에 따른 수입신고를 필함"의 문구
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="detail_law_th">생산자,수입품의 경우 수입자를 함께 표기</th>
+                                        <td class="detail_law_td">제품 별도 라벨 표기 참조</td>
+                                        <th class="detail_law_th">상품구성</th>
+                                        <td class="detail_law_td">상품설명 및 상품이미지 참조</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="detail_law_th">농수산물의 원산지 표시에 관한 법률에 따른 원산지</th>
+                                        <td class="detail_law_td">상품설명 및 상품이미지 참조</td>
+                                        <th class="detail_law_th">보관방법 또는 취급방법</th>
+                                        <td class="detail_law_td">상품별 직접 기재</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="detail_law_th">제조연월일(포장일 또는 생산년도),유통기한 또는 품질유지기한</th>
+                                        <td class="detail_law_td">제품 별도 라벨 표기 참조</td>
+                                        <th class="detail_law_th">소비자상담 관련 전화번호</th>
+                                        <td class="detail_law_td">마켓컬리 고객행복센터(1644-1107)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="view_whykurly" style="margin-top: 140px;">
+                                <div class="view_whykurly_tit">
+                                    <h3>WHY KURLY</h3>
+                                    <div class="view_whykurly_img">
+                                        <div style="margin-right: 50px;">
+                                            <figure>
+                                                <img src="./img/01_check.svg" alt="">
+                                            </figure>
+                                            <h4>깐깐한 상품위원회</h4>
+                                            <p class="view_whykurly_sub_tit">
+                                                나와 내 가족이 먹고 쓸 상품을 고르는<br>
+                                                마음으로 매주 상품을 직접 먹어보고,<br>
+                                                경험해보고 성분,맛,안정성 등 다각도의<br>
+                                                기분을 통과한 상품만을 판매합니다.
+                                            </p>
+                                        </div>
+                                        <div style="margin-right: 50px; margin-bottom: 50px;">
+                                            <figure>
+                                                <img src="./img/02_only.svg" alt="">
+                                            </figure>
+                                            <h4>차별화된 Kurly Only</h4>
+                                            <p class="view_whykurly_sub_tit">
+                                                전국 각지와 해외의 훌륭한 생산자가<br>
+                                                믿고 선택하는 파트너,마켓컬리<br>
+                                                3천여 개가 넘는 컬리 단독 브랜드, 스펙의<br>
+                                                Kurly Only 상품을 믿고 만나보세요.<br><br>
+                                                <span>(온라인 기준/ 자사몰, 직구 제외)</span>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <figure>
+                                                <img src="./img/03_cold.svg" alt="">
+                                            </figure>
+                                            <h4>신선한 풀콜드체인 배송</h4>
+                                            <p class="view_whykurly_sub_tit">
+                                                온라인 업계 쵳초로 산지에서 문 앞까지<br>
+                                                상온,냉장,냉동 상품을 분리 포장 후<br>
+                                                최적의 온도를 유지하는 냉장 배송 시스템,<br>
+                                                풀콜드체인으로 상품을 신선하게 전해드립니다.<br><br>
+                                                <span>(샛별배송에 한함)</span>
+                                            </p>
+                                        </div>
+                                        <div style="margin-right: 50px;">
+                                            <figure>
+                                                <img src="./img/04_price.svg" alt="">
+                                            </figure>
+                                            <h4>고객,생산자를 위한 최선의 가격</h4>
+                                            <p class="view_whykurly_sub_tit">
+                                                매주 대형 마트와 주요 온라인 마트의 가격<br>
+                                                반동 상황을 확인해 신선식품은 품질을<br>
+                                                타협하지 않은 선에서 최선의 가격으로,<br>
+                                                가공식품은 언제나 합리적인 가격으로<br>
+                                                정기 조정합니다.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <figure>
+                                                <img src="./img/05_eco.svg" alt="">
+                                            </figure>
+                                            <h4>환경을 생각하는 지속 가능한 유통</h4>
+                                            <p class="view_whykurly_sub_tit">
+                                                친환경 포장재부터 생산자가 상품에만<br>
+                                                집중할 수 있는 직매입 유통구조까지,<br>
+                                                지속 가능한 유통을 고민하여 컬리를 있게<br>
+                                                하는 모든 환경(생산자,커뮤니티,직원)이<br>
+                                                더 나아질 수 있도록 노력합니다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="view_info" style="margin-top: 140px;">
+                                <h3>고객행복센터</h3>
+                                <p class="view_info_sub">궁금하신 점이나 서비스 이용에 불편한 점이 있으신가요?<br>
+                                    <span>문제가 되는 부분을 사진으로 찍어 아래 중 편하신 방법으로 접수해 주시면 빠르게 도와드리겠습니다.</span>
+                                </p>
+                                <div class="view_info_detail">
+                                    <div>
+                                        <h4>전화문의 1644-1107</h4>
+                                        <p>오전 7시~오후 7시 (연중무휴)</p>
+                                    </div>
+                                    <div style="margin-left: 60px;">
+                                        <h4>카카오톡 문의</h4>
+                                        <p>
+                                            오전 7시~오후7시(연중무휴)<br><br>
+                                            <span>카카오톡에서'마켓컬리'를 검색 후<br>
+                                            대화창에서 문의 및 불편사항을<br>
+                                            남겨주세요.</span>
+                                        </p>
+                                    </div>
+                                    <div style="margin-left: 60px;">
+                                        <h4>홈페이지 문의</h4>
+                                        <p>
+                                            24시간 접수 가능<br>로그인 > 마이컬리 > 1:1 문의<br><br>
+                                            <span>고객센터 운영 시간에 순차적으로<br>
+                                            답변해드리겠습니다.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_board" style="margin-top: 140px;">
+                                <div class="review_board_tit">
+                                    <h3>PRODUCT REVIEW</h3>
+                                    <p>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</p>
+                                    <p>배송관련,주문(취소/교환/환불)관련 문의 및 요청사항은 마이컬리 내 1:1문의에 남겨주세요.</p>
+                                </div>
+                                <table class="review_board_detail">
+                                    <colgroup>
+                                        <col style="width:1%;">
+                                        <col>
+                                        <col style="width:10%;">
+                                        <col style="width:10%;">
+                                        <col style="width:10%;">
+                                        <col style="width:1%;">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>번호</th>
+                                            <th>제목</th>
+                                            <th>작성자</th>
+                                            <th>작성일</th>
+                                            <th>도움</th>
+                                            <th>조회</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>공지</th>
+                                            <td class="review_read" style="text-align:left; padding-left: 70px; ">금주의 Best후기 안내</td>
+                                            <td>Marketkurly</td>
+                                            <td>2019-11-01</td>
+                                            <td>0</td>
+                                            <td>572300</td>
+                                        </tr>
+                                        <tr>
+                                            <th>공지</th>
+                                            <td style="text-align:left; padding-left: 70px;">금주의 Best후기 안내</td>
+                                            <td>Marketkurly</td>
+                                            <td>2019-11-01</td>
+                                            <td>0</td>
+                                            <td>572300</td>
+                                        </tr>
+                                        <tr>
+                                            <th>공지</th>
+                                            <td style="text-align:left; padding-left: 70px;">상품 후기 적립금 정책 안내</td>
+                                            <td>Marketkurly</td>
+                                            <td>2019-11-01</td>
+                                            <td>1</td>
+                                            <td>305069</td>
+                                        </tr>
+                                        <tr>
+                                            <th>1266</th>
+                                            <td style="text-align:left; padding-left: 70px;">좋아요~</td>
+                                            <td>김*지</td>
+                                            <td>2022-06-29</td>
+                                            <td>0</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <th>1265</th>
+                                            <td style="text-align:left; padding-left: 70px;">오리로스 좋아요</td>
+                                            <td>김*주</td>
+                                            <td>2022-06-28</td>
+                                            <td>0</td>
+                                            <td>572300</td>
+                                        </tr>
+                                        <tr>
+                                            <th>1264</th>
+                                            <td style="text-align:left; padding-left: 70px;">별로네요</td>
+                                            <td>김*임</td>
+                                            <td>2022-06-25</td>
+                                            <td>0</td>
+                                            <td>15</td>
+                                        </tr>
+                                        <tr>
+                                            <th>1263</th>
+                                            <td style="text-align:left; padding-left: 70px;">굿</td>
+                                            <td>박*현</td>
+                                            <td>2022-06-23</td>
+                                            <td>0</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr style="border-bottom: 2px solid purple;">
+                                            <th>1262</th>
+                                            <td style="text-align:left; padding-left: 70px;">첫구매</td>
+                                            <td>한*정</td>
+                                            <td>2022-06-21</td>
+                                            <td>0</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-bottom: none;">
+                                                <button class="btn_review" >후기쓰기</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="page_move" style="margin-top: 50px;">
+                                    <a href="" class="first_btn"></a>
+                                    <a href="" class="prev_btn"></a>
+                                    <a href="">1</a>
+                                    <a href="">2</a>
+                                    <a href="">3</a>
+                                    <a href="">4</a>
+                                    <a href="">5</a>
+                                    <a href="">6</a>
+                                    <a href="">7</a>
+                                    <a href="">8</a>
+                                    <a href="">9</a>
+                                    <a href="">10</a>
+                                    <a href="" class="next_btn"></a>
+                                    <a href="" class="last_btn"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer id="ft">
+            <div class="ft_wrap">
+                <!-- 푸터 -->
+                <div class="ft_info">
+                    <div class="ft_info_box">
+                        <h1>COMPANY INFO</h1>
+                        <div class="ft_info_list ft_info_list_1">
+                            <dl>
+                                <dd>동협쇼핑몰</dd>
+                            </dl>
+                            <dl>
+                                <dt>대표 : </dt>
+                                <dd>김동협</dd>
+                            </dl>
+                            <dl>
+                                <dt>사업자등록번호 : </dt>
+                                <dd>111-11-11111</dd>
+                            </dl>
+                            <dl>
+                                <dt>통신판매업신고 : </dt>
+                                <dd>제2022-고양-5877448호</dd>
+                            </dl>
+                        </div>
+                        <div class="ft_info_list">
+                            <dl>
+                                <dt>개인정보관리자 : </dt>
+                                <dd>동협쇼핑몰</dd>
+                            </dl>
+                            <dl>
+                                <dd>경기도 고양시 한강뷰 어느 아파트 A동 17??호</dd>
+                            </dl>
+                            <dl>
+                                <dt>사업자등록번호 : </dt>
+                                <dd>139-81-22863</dd>
+                            </dl>
+                            <dl>
+                                <dt>전화 : </dt>
+                                <dd>032-817-2272</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="ft_info_box2">
+                        <h1>CS CENTER</h1>
+                        <div class="ft_info_list3">
+                            <h2>031-958-1611</h2>
+                            <h3>평일 10:00 ~ 18:20 (점심 12:50 ~ 13:30)</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft_info2">
+                    <div class="ft_copylight">
+                        <p>© 김동협 쇼핑몰. All Rights Reserved. <span style="color:#777">Site by 더조은동협모임</span></p>
+                    </div>
+                    <div class="ft_a_box">
+                        <a href="">회사소개</a>
+                        <a href="">이용약관</a>
+                        <a href="">개인정보처리방침</a>
+                        <a href="">이용안내</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function AmountCommas(val) {
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        var origin_sum_val = parseInt($('.sum').text());
+        $('.up_btn').click(function () {
+            var qty_val = $('.qty').val();
+            qty_val++;
+            $('.qty').val(qty_val);
+            var sum_val = origin_sum_val * qty_val;
+            $('.sum').text(AmountCommas(sum_val));
+        });
+
+        $('.down_btn').click(function () {
+            var qty_val = $('.qty').val();
+            if (qty_val > 1) {
+                qty_val--;
+                $('.qty').val(qty_val);
+                var sum_val = origin_sum_val * qty_val;
+                $('.sum').text(AmountCommas(sum_val));
+            } else {
+                alert("최소 수량은 1개 이상입니다.")
+            }
+        });
+    </script>
+</body>
+
+</html>

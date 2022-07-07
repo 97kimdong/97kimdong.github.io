@@ -1,0 +1,80 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <!-- 스크립트 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>$(function(){ $(".hd_wrap").load("../hd.html");$(".ft_wrap").load("../ft.html");});</script>
+    <!-- /스크립트 연결 -->
+    <title>Document</title>
+	<style>
+		.login-page{
+			clear:both;
+			margin-top:10%;
+		}
+		.form {
+		position: relative;
+		z-index: 1;
+		background: #FFFFFF;
+		max-width: 360px;
+		margin: 0 auto 100px;
+		margin-top:100px;
+		padding: 45px;
+		text-align: center;
+		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+		}
+		.form input {
+			font-family: "Roboto", sans-serif;
+			outline: 0;
+			background: #f2f2f2;
+			width: 100%;
+			border: 0;
+			margin: 0 0 15px;
+			padding: 15px;
+			box-sizing: border-box;
+			font-size: 14px;
+		}
+		.form button {
+			width: 100%;
+            padding: 15px 0 15px 0;
+			font-size: 14px;
+		}
+		.form .message {
+			margin: 15px 0 0;
+			color: #b3b3b3;
+			font-size: 12px;
+		}
+		
+		.form .message a {
+			color: #343a40;
+			text-decoration: none;
+		}
+		.form .register-form {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<header id="header" class="header"></header>
+		<div id="content">
+	        <div class="loginbox">
+	            <div class="login-page">
+		          <div class="form">
+		            <form class="login-form" action="./main.html" method="post">
+		              <input type="text" placeholder="userid" name="userid" id="userid" required />
+		              <input type="password" placeholder="password" name="userpw" id="userpw" required />
+		              <button type="submit" class="btn_black">login</button>
+		              <p class="message">아이디가 없으십니까? <a href="./agree.html">회원가입</a></p>
+		            </form>
+		          </div>
+		        </div>
+	        </div>
+	    </div>
+		<footer id="footer" class="footer"></footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+
+ul,li { list-style: none; }
+div { display: block; }
+a { text-decoration: none; color: #222;}
+
+.wrap { width: 1400px; height: 100%; }
+#container { clear: both; width: 100%; }
+.container_wrap { clear: both; width: 100%; }  
+.mypage_wrap { line-height: 4em; width: 1400px; }
+.mypage_left { width: 13%; text-align: center; float:left; border: 1px solid #bdbdbd; height: 731px; }
+.tb_wrap { text-align: center;}
+td { text-align: left;}
+
+
+.tb_wrap { border: 1px solid #bdbdbd; }
+
+
+/* 왼쪽 메뉴바 */
+.mypage_left .tit { height: 49.67px;  background-color: #222; font-size: 16px; font-weight: lighter; }
+.mypage_left .tit a { color: #fff;}
+.mypage_left .tit, .mypage_left ul li  { border-bottom: 1px solid #bdbdbd; }
+/* /왼쪽 메뉴바 */
+
+/* 오른쪽 정보창 */
+.mypage_right h2 { font-weight: lighter; color: #222; margin-left: 150px; }
+.mypage_right hr { width: 800px; color: #bdbdbd; text-align: center;}
+/* /오른쪽정보창 */
